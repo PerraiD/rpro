@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-Custom-Version-Sample",
+  "name": "nodejs-custom-version-sample",
   "version": "1.0.1",
   "description": "OpenShift Node.js Custom Version Sample Application",
   "keywords": [
@@ -8,31 +8,28 @@
     "application",
     "openshift"
   ],
-  "author": {
-    "name": "ramr",
-    "email": "ramr@example.org",
-    "url":  "http://www.openshift.com/"
-  },
+  "author": "ramr <ramr@example.org> (http://www.openshift.com/)",
   "homepage": "http://www.openshift.com/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ramr/nodejs-custom-version-openshift"
+    "url": "git+https://github.com/ramr/nodejs-custom-version-openshift.git"
   },
-
   "engines": {
     "node": ">= 0.6.0",
     "npm": ">= 1.0.0"
   },
-
   "dependencies": {
     "express": "*"
   },
   "devDependencies": {},
   "bundleDependencies": [],
-
   "private": true,
   "scripts": {
-     "start": "node server.js"
+    "start": "node server.js"
   },
-  "main": "server.js"
+  "main": "server.js",
+  "bugs": {
+    "url": "https://github.com/ramr/nodejs-custom-version-openshift/issues"
+  },
+  "license": "ISC"
 }

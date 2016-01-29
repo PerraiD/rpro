@@ -25,7 +25,7 @@ var SampleApp = function() {
         self.ipaddress = process.env.OPENSHIFT_NODEJS_IP ||
                          process.env.OPENSHIFT_INTERNAL_IP;
         self.port      = process.env.OPENSHIFT_NODEJS_PORT   ||
-                         process.env.OPENSHIFT_INTERNAL_PORT || 8080;
+                         process.env.OPENSHIFT_INTERNAL_PORT || 8091;
 
         if (typeof self.ipaddress === "undefined") {
             //  Log errors on OpenShift but continue w/ 127.0.0.1 - this

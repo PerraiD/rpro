@@ -120,7 +120,7 @@ var SampleApp = function() {
 
         self.routes['/'] = function(req, res) {
             res.set('Content-Type', 'text/html');
-            res.send(self.cache_get('index.html') );
+            res.send(self.cache_get('./www/index.html') );
         };
     };
 

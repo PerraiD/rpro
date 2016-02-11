@@ -21,7 +21,9 @@
   "dependencies": {
     "express": "*"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jasmine-core": "2.4.1"
+  },
   "bundleDependencies": [],
   "private": true,
   "scripts": {

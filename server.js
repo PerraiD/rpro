@@ -1,12 +1,24 @@
-//  OpenShift sample Node application
-var express = require('express');
-var fs      = require('fs');
+//  OpenShift  Node application
+var express     = require('express');
+var fs          = require('fs');
+var bodyParser  = require('body-parser');
+var router      = express.Router();
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({
+    extended: false
+}));
+
+//we get rest user api definition with routes
+var user = require('./restAPI/userRoutes');
+
+//we get rest beacon api definition with routes
+var beacon = require('./restAPI/beaconRoutes');
 
 
 /**
- *  Define the sample application.
+ *  Rpro server
  */
-var SampleApp = function() {
+var RproServer = function() {
 
     //  Scope.
     var self = this;
@@ -32,27 +44,6 @@ var SampleApp = function() {
             self.ipaddress = "127.0.0.1";
         };
     };
-
-
-    /**
-     *  Populate the cache.
-     */
-    self.populateCache = function() {
-        if (typeof self.zcache === "undefined") {
-            self.zcache = { 'index.html': '' };
-        }
-
-        //  Local cache for static content.
-        self.zcache['index.html'] = fs.readFileSync('./www/index.html');
-    };
-
-
-    /**
-     *  Retrieve entry (content) from cache.
-     *  @param {string} key  Key identifying content to retrieve from cache.
-     */
-    self.cache_get = function(key) { return self.zcache[key]; };
-
 
     /**
      *  terminator === the termination handler
@@ -89,63 +80,37 @@ var SampleApp = function() {
     /*  App server functions (main app logic here).                       */
     /*  ================================================================  */
 
-    /**
-     *  Create the routing table entries + handlers for the application.
-     */
-    self.createRoutes = function() {
-        self.routes = { };
-
-        // Routes for /health, /asciimo, /env and /
-        self.routes['/health'] = function(req, res) {
-            res.send('1');
-        };
-
-        self.routes['/asciimo'] = function(req, res) {
-            var link = "http://i.imgur.com/kmbjB.png";
-            res.send("<html><body><img src='" + link + "'></body></html>");
-        };
-
-        self.routes['/env'] = function(req, res) {
-            var content = 'Version: ' + process.version + '\n<br/>\n' +
-                          'Env: {<br/>\n<pre>';
-            //  Add env entries.
-            for (var k in process.env) {
-               content += '   ' + k + ': ' + process.env[k] + '\n';
-            }
-            content += '}\n</pre><br/>\n'
-            res.send('<html>\n' +
-                     '  <head><title>Node.js Process Env</title></head>\n' +
-                     '  <body>\n<br/>\n' + content + '</body>\n</html>');
-        };
-
-        self.routes['/'] = function(req, res) {
-            res.set('Content-Type', 'text/html');
-            res.send(self.cache_get('index.html') );
-        };
-    };
-
 
     /**
      *  Initialize the server (express) and create the routes and register
      *  the handlers.
      */
     self.initializeServer = function() {
-        self.createRoutes();
         self.app = express();
-
-        //  Add handlers for the app (from the routes).
-        for (var r in self.routes) {
-            self.app.get(r, self.routes[r]);
-        }
+        
+        // we push user routes to the router 
+        // the url will be http://.../user/
+        self.app.use('/user',user); 
+        
+         // we push beacon routes to the router 
+        // the url will be http://.../beacon/
+        self.app.use('/beacon',beacon);
+        
+         // catch 404 and forward to error handler
+        self.app.use(function(req, res, next) {
+            var err = new Error('Not Found');
+            err.status = 404;
+            next(err);
+        });   
     };
 
-
+   
     /**
      *  Initializes the sample application.
      */
     self.initialize = function() {
         self.setupVariables();
-        self.populateCache();
+       // self.populateCache();
         self.setupTerminationHandlers();
 
         // Create the express server and routes.
@@ -171,7 +136,7 @@ var SampleApp = function() {
 /**
  *  main():  Main code.
  */
-var zapp = new SampleApp();
+var zapp = new RproServer();
 zapp.initialize();
 zapp.start();
 

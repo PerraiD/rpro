@@ -129,7 +129,7 @@ var RproServer = function() {
         });
     };
 
-};   /*  Sample Application.  */
+}; 
 
 
 

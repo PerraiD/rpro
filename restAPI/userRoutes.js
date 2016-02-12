@@ -15,16 +15,29 @@ var userDbStub = [
        id:1,
        firstname:'john',
        lastname: 'doe',
-       password: 'password'  // should have to be in shaone    
+       email : 'john.doe@mail.com',
+       password: 'password',  // should have to be in shaone
+       headline : '',
+       industry : '',
+       picture-url : '',
+       positions: [],
+       specialties:'',
+       contacts:[]    
     },
     {
        id:2,
        firstname :'barb',
        lastname : 'dirt',
-       password : 'password' // should have to be in shaone
+       email : 'barb.dirt@mail.com',
+       password : 'password', // should have to be in shaone
+       headline : '',
+       industry : '',
+       picture-url : '',
+       positions: [],
+       specialties:'',
+       contacts:[]    
     }
 ]
-
 /**
  * ======= functions utilities =============================
  */
@@ -54,13 +67,25 @@ function updateUser(userFound,reqBody) {
     if (reqBody) {
         
        for (var params in reqBody) {
-           // we avoid to insert non existing property and avoir the modification of the id that it's forbbiden
-            if( params && params !== '' && userFound[params] !== undefined && params !== 'id' ) {
+           // we avoid to insert non existing property and avoir the modification of the id and password that it's forbbiden
+            if( params && params !== '' && userFound[params] !== undefined && params !== 'id' && params !== 'password' ) {
                 userFound[params] = reqBody[params];
             }
         }        
         userDbStub[userIndex] = userFound;    
     }
+}
+
+
+//function to update user if a body parameter is set 
+function updateUser(userFound,reqBody) {
+    var userIndex = userDbStub.lastIndexOf(userFound);
+    
+    if (reqBody && reqBody.password && rebody.password !== '') {        
+                userFound.password = reqBody.password;         
+    }
+            
+    userDbStub[userIndex] = userFound;    
 }
 
 // function to create user with required params if exist
@@ -137,7 +162,67 @@ router.get('/', function(req,res,next) {
        res.status(503).send('id isn\'t an integer or is undefined in the request');       
     }    
 })
+/**
+ * post function to update password user 
+ */
+.post('/:id/pass', function(req,res,next){
+    
+    var id = Number.parseInt(req.params.id);
+    
+    if ( id && !Number.isNaN(id) ) {
+        var user= getUser(id);
+        var reqBody = req.body;
+               
+        if( user ) {        
+            updatePassword(user,reqBody);
+            res.send();        
+        } else {
+            res.status(404).send('user not found');
+        }
+        
+     } else {
+       res.status(503).send('id isn\'t an integer or is undefined in the request');       
+    }   
+})
+/**
+ * post function to adding a contact in the list 
+ * 
+ */
+.post('/:id/contact/', function(req,res,next){
+     var id = Number.parseInt(req.params.id);
+     var idToAdd = Number.parseInt(req.body.id);
+     var user;
+     var userToAdd;
+     
+     if ( idToAdd && !Number.isNaN(idToAdd) ) {
+        var userToAdd = getUser(idToAdd);
+               
+        if( userToAdd ) {        
+            res.send();        
+        } else {
+            res.status(404).send('user to add not found');
+        }
+        
+     } else {
+       res.status(503).send('id isn\'t an integer or is undefined in the request');       
+    }   
+     
+    if ( id && !Number.isNaN(id) ) {
+        var user= getUser(id);
+        
+               
+        if( user ) {        
 
+            res.send();        
+        } else {
+            res.status(404).send('user not found');
+        }
+        
+     } else {
+       res.status(503).send('id isn\'t an integer or is undefined in the request');       
+    }   
+      
+})
 /**
  * put function to create a user 
  * 

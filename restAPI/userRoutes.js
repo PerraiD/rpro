@@ -246,7 +246,8 @@ router.get('/', function(req,res,next) {
 .post('/authenticate',function(req,res,next) {
     var user = getAuthUser(req,res);
     
-    if (user && JSON.stringify(user) !== '{}' && user.password === sha1(JSON.stringify(req.body.password))) {
+    if (user && JSON.stringify(user) !== '{}' && user.password === sha1(req.body.password)) {
+        
         res.json(user);
     } else {
         

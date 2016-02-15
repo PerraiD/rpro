@@ -1,8 +1,9 @@
 'use strict';
 
 var express         = require('express');
-var bodyParser  = require('body-parser');
-var router            = express.Router();
+var bodyParser      = require('body-parser');
+var router          = express.Router();
+var sha1            = require('sha1');
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({
     extended: false
@@ -115,9 +116,14 @@ function createUser(reqBody){
     if (reqBody){
         for (var params in model) {
             
+             
             if (reqBody[params] !== undefined) {
-                user[params] = reqBody[params];
-            }else if(Number.isInteger(model[params])){
+                if(params === 'password') {
+                    user[params] = sha1(reqBody[params]);
+                }else{
+                    user[params] = reqBody[params];
+                }              
+            }else if(Number.isInteger(model[params])) {
                 user[params]=0;
             }else{
                 user[params]= '';
@@ -136,7 +142,7 @@ function updatePassword(user,password) {
       var userIndex = userDbStub.lastIndexOf(user);
 
       if (password !== '' && password !== undefined) {
-          user.password = password;
+          user.password = sha1(password);
           userDbStub[userIndex] = user;
       }
       
@@ -169,6 +175,28 @@ function deleteContact(user,contactId) {
     }
     return user;
 }
+
+/**
+ * 
+ */
+
+function getAuthUser(req,res){
+    var email = req.body.email;
+    var userAuth = {};
+    
+    if(email && email !== '' && email !== undefined) {
+        userDbStub.forEach(function(user) {
+            if(user.email === email) {
+               userAuth = user;
+            }      
+     }, this);
+    }else{
+        res.status(401).send('authenfication fail');
+    }
+    return userAuth;   
+}
+    
+
 
 /**
  * ======= all routes for the user =============================
@@ -211,6 +239,19 @@ router.get('/', function(req,res,next) {
      res.json(contact);
 })
 /**
+ * function to authenticate user 
+ */
+.post('/authenticate',function(req,res,next) {
+    var user = getAuthUser(req,res);
+    
+    if (user && user !== {} && user.password === sha1(req.body.password)) {
+        res.json(user);
+    } else {
+        res.status(401).send('authentication error');
+    }
+      
+})
+/**
  * post function to update user informations
  */
 .post('/:id', function(req,res,next) {
@@ -227,7 +268,7 @@ router.get('/', function(req,res,next) {
     var user = getUser(req.params.id,res);
     var newPass = req.body.password;
     user =  updatePassword(user,newPass);
-    res.send(user);             
+    res.json(user);             
 })
 
 /**
@@ -248,12 +289,11 @@ router.get('/', function(req,res,next) {
          if (!contactExist(user,userToAdd)) {
              user.contacts.push({id : userToAdd.id});
          }
-         res.send(user);      
+         res.json(user);      
      }else{
          res.status(504).send('the user can\'t add itself as contact');
      }                     
 })
-
 /**
  * put function to create a user 
  * 
@@ -277,7 +317,7 @@ router.get('/', function(req,res,next) {
             }
         } else { // we update the user
            user = updateUser(user,reqBody);
-            res.send(user);
+            res.json(user);
        }
        
     } else {
@@ -291,7 +331,7 @@ router.get('/', function(req,res,next) {
 .delete('/:id', function(req,res,next){
     var user = getUser(req.params.id,res);
     user = userDbStub.splice(userDbStub.lastIndexOf(user),1);
-    res.send(user);
+    res.json(user);
 })
 /**
  * function to delete a contact from a user 

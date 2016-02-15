@@ -115,8 +115,7 @@ function createUser(reqBody){
      console.log(reqBody);
     if (reqBody){
         for (var params in model) {
-            
-             
+                      
             if (reqBody[params] !== undefined) {
                 if(params === 'password') {
                     user[params] = sha1(reqBody[params]);
@@ -247,7 +246,7 @@ router.get('/', function(req,res,next) {
 .post('/authenticate',function(req,res,next) {
     var user = getAuthUser(req,res);
     
-    if (user && JSON.stringify(user) !== '{}' && user.password === sha1(req.body.password)) {
+    if (user && JSON.stringify(user) !== '{}' && user.password === sha1(JSON.stringify(req.body.password))) {
         res.json(user);
     } else {
         

@@ -112,7 +112,7 @@ function createUser(reqBody){
     var user={};
     //we take the first occurence to have the data model 
     var model = userDbStub[0];
-     
+     console.log(reqBody);
     if (reqBody){
         for (var params in model) {
             
@@ -131,6 +131,7 @@ function createUser(reqBody){
         }      
       userDbStub.push(user);   
     }
+    console.log(user);
     return user ;
 }
 

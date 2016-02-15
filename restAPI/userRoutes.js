@@ -250,7 +250,8 @@ router.get('/', function(req,res,next) {
     if (user && JSON.stringify(user) !== '{}' && user.password === sha1(req.body.password)) {
         res.json(user);
     } else {
-        res.status(401).send('authentication error');
+        
+        res.status(401).send(sha1(req.body.password) +" "+user.password);
     }
       
 })

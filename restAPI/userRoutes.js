@@ -304,20 +304,27 @@ router.get('/', function(req,res,next) {
      
     var reqBody = req.body;
     var id = reqBody.id;
-    if ( id ) {
-       var user = getUser(id,res);
+    var user = {};
+    if ( id && id !== '') {
+        
+       //we check get the user if exist       
+       userDbStub.forEach(function(dbUser) {
+           if (dbUser.id === id) {
+               user = dbUser;
+           }
+       }, this);
        
-        if ( !user ) {//we create the user
-           // check the parameters and put in the  db.
+        if ( !user || user === {} ) {//we create the user
+           // check the parameters and put in the db.
             var created = createUser(reqBody);
-            if( created ) {
+            if( created  && created !== {} ) {
                 res.send(created);
             }else{
                 res.status(504).send('user creation issue');
             }
         } else { // we update the user
            user = updateUser(user,reqBody);
-            res.json(user);
+           res.json(user);
        }
        
     } else {

@@ -180,7 +180,7 @@ function deleteContact(user,contactId) {
 }
 
 /**
- * 
+ * function to get a user by its email for the authentification
  */
 
 function getAuthUser(req,res){
@@ -189,7 +189,7 @@ function getAuthUser(req,res){
     
     if(email && email !== '' && email !== undefined) {
         userDbStub.forEach(function(user) {
-            if(user.email === email) {
+            if(user.emailAddress === email) {
                userAuth = user;
             }      
      }, this);

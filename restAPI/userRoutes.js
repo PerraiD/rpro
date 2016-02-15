@@ -78,7 +78,7 @@ function getUser(id,res) {
         }
     
     } else {
-       res.status(503).send('id isn\'t defined');       
+       res.status(400).send('id isn\'t defined');       
     }    
     return user;
 }
@@ -291,7 +291,7 @@ router.get('/', function(req,res,next) {
          }
          res.json(user);      
      }else{
-         res.status(504).send('the user can\'t add itself as contact');
+         res.status(400).send('the user can\'t add itself as contact');
      }                     
 })
 /**
@@ -303,9 +303,9 @@ router.get('/', function(req,res,next) {
 .put('/', function(req,res,next) {
      
     var reqBody = req.body;
-    var id = Number.parseInt(reqBody.id);
-    if ( !Number.isNaN(id) ) {
-       var user = getUser(id);
+    var id = reqBody.id;
+    if ( id ) {
+       var user = getUser(id,res);
        
         if ( !user ) {//we create the user
            // check the parameters and put in the  db.
@@ -321,7 +321,7 @@ router.get('/', function(req,res,next) {
        }
        
     } else {
-       res.status(503).send('id isn\'t defined');
+       res.status(400).send('id isn\'t defined');
     }
 })
 

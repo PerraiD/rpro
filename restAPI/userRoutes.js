@@ -14,9 +14,9 @@ router.use(bodyParser.urlencoded({
 var userDbStub = [
     { 
        id:'1',
-       firstname:'john',
-       lastname: 'doe',
-       email : 'john.doe@mail.com',
+       firstName:'john',
+       lastName: 'doe',
+       emailAddress : 'john.doe@mail.com',
        password: 'password',  // should have to be in shaone
        headline : '',
        industry : '',
@@ -30,9 +30,9 @@ var userDbStub = [
     },
     {
        id:'2',
-       firstname :'barb',
-       lastname : 'dirt',
-       email : 'barb.dirt@mail.com',
+       firstName :'barb',
+       lastName : 'dirt',
+       emailAddress : 'barb.dirt@mail.com',
        password : 'password', // should have to be in shaone
        headline : '',
        industry : '',
@@ -125,6 +125,8 @@ function createUser(reqBody){
                 }              
             }else if(Number.isInteger(model[params])) {
                 user[params]=0;
+            }else if(Array.isArray(model[params])){
+                user[params]=[];
             }else{
                 user[params]= '';
             }
@@ -245,7 +247,7 @@ router.get('/', function(req,res,next) {
 .post('/authenticate',function(req,res,next) {
     var user = getAuthUser(req,res);
     
-    if (user && user !== {} && user.password === sha1(req.body.password)) {
+    if (user && JSON.stringify(user) !== '{}' && user.password === sha1(req.body.password)) {
         res.json(user);
     } else {
         res.status(401).send('authentication error');
@@ -306,19 +308,22 @@ router.get('/', function(req,res,next) {
     var reqBody = req.body;
     var id = reqBody.id;
     var user = {};
+    console.log(reqBody);
+    
     if ( id && id !== '') {
-        
+        console.log("id passe");
        //we check get the user if exist       
        userDbStub.forEach(function(dbUser) {
            if (dbUser.id === id) {
                user = dbUser;
            }
        }, this);
-       
-        if ( !user || user === {} ) {//we create the user
+
+        if ( !user || JSON.stringify(user) === '{}') {//we create the user
+            console.log("user non existante");
            // check the parameters and put in the db.
             var created = createUser(reqBody);
-            if( created  && created !== {} ) {
+            if( created  && JSON.stringify(created) !== '{}' ) {
                 res.send(created);
             }else{
                 res.status(504).send('user creation issue');

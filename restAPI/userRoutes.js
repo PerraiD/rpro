@@ -17,7 +17,7 @@ var userDbStub = [
        firstName:'john',
        lastName: 'doe',
        emailAddress : 'john.doe@mail.com',
-       password: 'password',  // should have to be in shaone
+       password: '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',
        headline : '',
        industry : '',
        pictureUrl : '',
@@ -33,8 +33,7 @@ var userDbStub = [
        firstName :'barb',
        lastName : 'dirt',
        emailAddress : 'barb.dirt@mail.com',
-       password : 'password', // should have to be in shaone
-       headline : '',
+       password : '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',
        industry : '',
        pictureUrl : '',
        positions: [],
@@ -66,19 +65,19 @@ function error(message,status) {
  */
 function getUser(id,res) {
      var user;
-     if ( id && id !== '' )  {
+     if ( id && id !== '' && id !== undefined )  {
         userDbStub.forEach(function(element) {
             if(element.id === id ) {
                 user = element;
             }
         }, this); 
                     
-        if( !user ) {
+        if( !user && user === undefined) {
             res.status(404).send('user not found');
         }
     
     } else {
-       res.status(400).send('id isn\'t defined');       
+       res.status(401).send('id isn\'t defined');       
     }    
     return user;
 }
@@ -108,31 +107,43 @@ function updateUser(userFound,reqBody) {
  * function to create user with required params if exist
  * @return new user object
  */
-function createUser(reqBody){
+function createUser(reqBody,res){
     var user={};
     //we take the first occurence to have the data model 
     var model = userDbStub[0];
-     console.log(reqBody);
-    if (reqBody){
-        for (var params in model) {
-                      
-            if (reqBody[params] !== undefined) {
-                if(params === 'password') {
-                    user[params] = sha1(reqBody[params]);
+    if (reqBody && reqBody.emailAddress !== '' && reqBody.emailAddress !== undefined){
+        // we check if the email not already exist
+        var emailExist = false;
+        userDbStub.forEach(function(user) {
+            if(user.emailAddress === reqBody.emailAddress){
+                emailExist = true;
+            }    
+        }, this);
+        
+        if(emailExist){
+          res.status(403).send('user already exist with this email');  
+        }else{        
+            for (var params in model) {
+                        
+                if (reqBody[params] !== undefined) {
+                    if(params === 'password') {
+                        user[params] = sha1(reqBody[params]);
+                    }else{
+                        user[params] = reqBody[params];
+                    }              
+                }else if(Number.isInteger(model[params])) {
+                    user[params]=0;
+                }else if(Array.isArray(model[params])){
+                    user[params]=[];
                 }else{
-                    user[params] = reqBody[params];
-                }              
-            }else if(Number.isInteger(model[params])) {
-                user[params]=0;
-            }else if(Array.isArray(model[params])){
-                user[params]=[];
-            }else{
-                user[params]= '';
+                    user[params]= '';
+                }
             }
-        }      
-      userDbStub.push(user);   
+      userDbStub.push(user);
+      }            
+    }else{
+        res.status(403).send('user email not defined');
     }
-    console.log(user);
     return user ;
 }
 
@@ -158,7 +169,7 @@ function updatePassword(user,password) {
 function contactExist(user,userToCheck) {
   var exist = false;
     user.contacts.forEach(function(contactId) {
-        if (( contactId.id !== undefined &&  userToCheck.id !== undefined)  && contactId.id === userToCheck.id) {
+        if ((contactId.id !== undefined &&  userToCheck.id !== undefined)  && contactId.id === userToCheck.id) {
             exist = true;
         }
     }, this);
@@ -183,7 +194,7 @@ function deleteContact(user,contactId) {
  */
 
 function getAuthUser(req,res){
-    var email = req.body.email;
+    var email = req.body.emailAddress;
     var userAuth = {};
     
     if(email && email !== '' && email !== undefined) {
@@ -193,7 +204,7 @@ function getAuthUser(req,res){
             }      
      }, this);
     }else{
-        res.status(401).send('authenfication fail');
+        res.status(401).send('email not defined');
     }
     return userAuth;   
 }
@@ -220,38 +231,51 @@ router.get('/', function(req,res,next) {
 })
 
 /**
+ * TODO : Improve this function to get user not just id
  * get function to get all contacts from a user 
  */
 .get('/:id/contacts/',function(req,res,next){
-    var user = getUser(req.params.id);
-    res.json(user.contacts);
+    var user = getUser(req.params.id,res);
+    if(user){
+         res.json(user.contacts);
+    }
+   
 })
 
 /**
  * get function to get a user by its id that is in contact list from a user id 
  */
 .get('/:id/contact/:contactId',function(req,res,next){
-    var user = getUser(req.params.id)
+    var user = getUser(req.params.id,res);
     var contact={};
-     user.contacts.forEach(function(contactId) {
+    
+    if(user !== undefined){
+        user.contacts.forEach(function(contactId) {
          if(contactId.id == req.params.contactId){
              contact = getUser(contactId.id,res);
          }
      }, this);
-     res.json(contact);
+     
+     if(contact && JSON.stringify(contact) !== '{}') {
+        res.json(contact);
+     } else {
+         res.status(404).send('user not found');
+     }
+    }
+    
+    
 })
 /**
  * function to authenticate user 
  */
 .post('/authenticate',function(req,res,next) {
     var user = getAuthUser(req,res);
-    
     if (user && JSON.stringify(user) !== '{}' && user.password === sha1(req.body.password)) {
         
         res.json(user);
     } else {
         
-        res.status(401).send(sha1(req.body.password) +" "+user.password);
+        res.status(401).send('authentification fail');
     }
       
 })
@@ -260,8 +284,10 @@ router.get('/', function(req,res,next) {
  */
 .post('/:id', function(req,res,next) {
     var user = getUser(req.params.id,res);
-    user =  updateUser(user,req.body);
-    res.json(user); 
+    if(user && JSON.stringify(user) !== '{}') {
+        user =  updateUser(user,req.body);
+        res.json(user);   
+    }  
 })
 
 /**
@@ -270,18 +296,21 @@ router.get('/', function(req,res,next) {
 .post('/:id/pass', function(req,res,next){
     
     var user = getUser(req.params.id,res);
-    var newPass = req.body.password;
-    user =  updatePassword(user,newPass);
-    res.json(user);             
+    if(user && JSON.stringify(user) !== '{}') {
+        var newPass = req.body.password;
+        user =  updatePassword(user,newPass);
+        res.json(user);           
+    }
+      
 })
 
 /**
  * post function to adding a contact in the list 
- * 
+ * the body should be like {id:idFromUserToAdd}
  */
 .post('/:id/contact/', function(req,res,next){
-     var id = req.params.id;
-     var idToAdd = req.body.id;
+     var id = req.params === undefined ? undefined : req.params.id;
+     var idToAdd = req.body === undefined ? undefined : req.body.id;
      var user;
      var userToAdd;
      
@@ -290,7 +319,7 @@ router.get('/', function(req,res,next) {
          userToAdd = getUser(idToAdd,res);
          
          //we check if the user doesn't already have userToAdd 
-         if (!contactExist(user,userToAdd)) {
+         if (user && userToAdd && !contactExist(user,userToAdd)) {
              user.contacts.push({id : userToAdd.id});
          }
          res.json(user);      
@@ -309,21 +338,17 @@ router.get('/', function(req,res,next) {
     var reqBody = req.body;
     var id = reqBody.id;
     var user = {};
-    console.log(reqBody);
     
     if ( id && id !== '') {
-        console.log("id passe");
        //we check get the user if exist       
        userDbStub.forEach(function(dbUser) {
            if (dbUser.id === id) {
                user = dbUser;
            }
        }, this);
-
         if ( !user || JSON.stringify(user) === '{}') {//we create the user
-            console.log("user non existante");
            // check the parameters and put in the db.
-            var created = createUser(reqBody);
+            var created = createUser(reqBody,res);
             if( created  && JSON.stringify(created) !== '{}' ) {
                 res.send(created);
             }else{
@@ -344,17 +369,21 @@ router.get('/', function(req,res,next) {
  */
 .delete('/:id', function(req,res,next){
     var user = getUser(req.params.id,res);
-    user = userDbStub.splice(userDbStub.lastIndexOf(user),1);
-    res.json(user);
+    if(user && JSON.stringify(user) !=='{}'){
+        
+        user = userDbStub.splice(userDbStub.lastIndexOf(user),1);
+        res.json(user);
+    }
+  
 })
 /**
  * function to delete a contact from a user 
  */
 .delete('/:id/contact/:contactId',function(req,res,next){
      var user = getUser(req.params.id,res);
-     var userToDel = getUser(req.params.contactId);
+     var userToDel = getUser(req.params.contactId,res);
     
-    if(contactExist(user,userToDel)){
+    if(user && userToDel && contactExist(user,userToDel)){
         user = deleteContact(user,userToDel);    
     }
     res.json(user);

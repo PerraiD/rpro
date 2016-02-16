@@ -12,13 +12,13 @@ router.use(bodyParser.urlencoded({
 // should be replace by a real database
 var beaconDbStub = [
     { 
-       idBeacon:123,
+       idBeacon:'a123',
        associatedPlace:'gare mont-parnasse',
-       longitude : 2.3194819999999936,
-       latitude  : 48.84058599999999
+       longitude : 2.31,
+       latitude  : 48.8
     },
     {
-       idBeacon:345,
+       idBeacon:'b345',
        associatedPlace : 'train Nantes-Paris',
        longitude: 0.0,
        latitude : 0.0 
@@ -50,7 +50,6 @@ function getBeacon(id) {
 //function to update beacon if a body parameter is set 
 function updateBeacon(beacon,reqBody) {
     var beaconIndex = beaconDbStub.lastIndexOf(beacon);
-    
     if (reqBody) {
         
        for (var params in reqBody) {
@@ -58,9 +57,10 @@ function updateBeacon(beacon,reqBody) {
             if( params && params !== '' && beacon[params] !== undefined ) {
                 beacon[params] = reqBody[params];
             }
-        }        
+        }     
         beaconDbStub[beaconIndex] = beacon;    
     }
+    return beacon;
 }
 
 // function to create beacon with required params if exist
@@ -84,7 +84,7 @@ function createBeacon(reqBody){
         }      
       beaconDbStub.push(beacon);   
     }
-    return ( beacon !== {} ) ;
+    return beacon ;
 }
 
 /**
@@ -102,9 +102,9 @@ router.get('/', function(req,res,next) {
  * get function to retrieve one beacon by its id
  */
 .get('/:id', function(req,res,next) {
-    var id = Number.parseInt(req.params.id);
+   var id = req.params.id
        
-    if (id && !Number.isNaN(id)) {
+    if (id && id !== undefined) {
         var beacon=getBeacon(id);
                     
         if(beacon) {
@@ -121,14 +121,14 @@ router.get('/', function(req,res,next) {
 /**
  * get function to retrieve a place from a beacon id
  */
-.get('/:id/place/',function(req,res,next){
-    var id = Number.parseInt(req.params.id);
+.get('/:id/place/',function(req,res,next) {
+   var id = req.params.id
        
-    if (id && !Number.isNaN(id)) {
+    if (id && id !== undefined) {
         var beacon=getBeacon(id);
                     
         if(beacon) {
-            res.send(beacon.associatedPlace);
+            res.json({place:beacon.associatedPlace});
         } else {
             res.status(404).send('beacon not found');
         }
@@ -142,21 +142,21 @@ router.get('/', function(req,res,next) {
  * post function to update beacon informations
  */
 .post('/:id', function(req,res,next) {
-    var id = Number.parseInt(req.params.id);
+   var id = req.params.id
     
-    if ( id && !Number.isNaN(id) ) {
+    if ( id && id !== undefined ) {
         var beacon= getBeacon(id);
         var reqBody = req.body;
                
         if( beacon ) {        
-            updateBeacon(beacon,reqBody);
-            res.send();        
+            beacon = updateBeacon(beacon,reqBody);
+            res.send(beacon);        
         } else {
             res.status(404).send('beacon not found');
         }
         
      } else {
-       res.status(503).send('id isn\'t an integer or is undefined in the request');       
+       res.status(503).send('id is undefined in the request');       
     }    
 })
 
@@ -168,15 +168,16 @@ router.get('/', function(req,res,next) {
  */
 .put('/', function(req,res,next) {
     var reqBody = req.body;
-    var id = Number.parseInt(reqBody.id);
-    if ( !Number.isNaN(id) ) {
+    var id = reqBody.idBeacon;
+    
+    if ( id !== undefined  && id !== '') {
        var beacon = getBeacon(id);
        
-        if ( !beacon ) {//we create the beacon
+        if ( !beacon  && beacon === undefined) {//we create the beacon
            // check the parameters and put in the  db.
             var created = createBeacon(reqBody);
             if( created ) {
-                res.send();
+                res.send(created);
             }else{
                 res.status(504).send('beacon creation issue');
             }
@@ -186,23 +187,27 @@ router.get('/', function(req,res,next) {
        }
        
     } else {
-       res.status(503).send('id isn\'t an integer or is undefined in the request');
+       res.status(503).send('id is undefined in the request');
     }
 })
-.delete('/:id', function(req,res,next){
-    var id = Number.parseInt(req.params.id);
 
-    if ( !Number.isNaN(id) ) {
+/**
+ * delete function that remove beacon entry in the db  
+ */
+.delete('/:id', function(req,res,next){
+   var id = req.params.id
+
+    if ( id !== undefined ) {
        var beacon = getBeacon(id);
        
        if(beacon){
-            beaconDbStub.splice(beaconDbStub.lastIndexOf(beacon),1);
-            res.send();
+            beacon = beaconDbStub.splice(beaconDbStub.lastIndexOf(beacon),1);
+            res.send(beacon);
        } else {
             res.status(404).send('beacon not found');
         }
     } else {
-        res.status(503).send('id isn\'t an integer or is undefined in the request');
+        res.status(503).send('id is undefined in the request');
     }
 });
 

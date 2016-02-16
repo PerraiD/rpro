@@ -21,10 +21,12 @@
   "dependencies": {
     "body-parser": "^1.15.0",
     "express": "*",
+    "jasmine": "^2.4.1",
     "sha1": "^1.1.1"
   },
   "devDependencies": {
-    "jasmine-core": "2.4.1"
+    "jasmine-core": "2.4.1",
+    "supertest": "^1.2.0"
   },
   "bundleDependencies": [],
   "private": true,

@@ -22,6 +22,12 @@ var beaconDbStub = [
        associatedPlace : 'train Nantes-Paris',
        longitude: 0.0,
        latitude : 0.0 
+    },
+    {
+        idBeacon :'2f234454-cf6d-4a0f-adf2-f4911ba9ffa6',
+        associatedPlace : 'Bureau IOT',
+        longitude: 0.0,
+        latitude : 0.0
     }
 ]
 

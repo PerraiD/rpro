@@ -31,7 +31,7 @@ describe('GET /beacon/', function() {
         rest.get('/beacon/')
         .expect(function(res) {
             expect(res.status).toBe(200);       
-            expect(res.body.length).toEqual(2);                    
+            expect(res.body.length).toEqual(3);                    
         })
         .end(done);         
     });

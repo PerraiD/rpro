@@ -21,7 +21,7 @@ var user1 = {
                 contacts:[{
                     id:'2'
                 }],
-                place : []    
+                place : {}    
               }
 
 var user2 = {
@@ -36,7 +36,7 @@ var user2 = {
                 positions: [],
                 specialties:'',
                 contacts:[],
-                place : []    
+                place : {}    
            }
            
 var user3 = { 
@@ -51,7 +51,7 @@ var user3 = {
                 positions: [],
                 specialties:'',
                 contacts:[],
-                place : []    
+                place : {}    
               }
 
 describe('PUT /user/', function() {

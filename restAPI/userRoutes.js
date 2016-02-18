@@ -26,7 +26,7 @@ var userDbStub = [
        contacts:[{
            id:'2'
        }],
-       place : []    
+       place : {}    
     },
     {
        id:'2',
@@ -39,7 +39,7 @@ var userDbStub = [
        positions: [],
        specialties:'',
        contacts:[],
-       place : []    
+       place : {}    
     }
 ]
 /**
@@ -135,6 +135,8 @@ function createUser(reqBody,res){
                     user[params]=0;
                 }else if(Array.isArray(model[params])){
                     user[params]=[];
+                } else if(typeof model[params] === "object") {
+                    user[params]={};
                 }else{
                     user[params]= '';
                 }

@@ -8,6 +8,8 @@ router.use(bodyParser.urlencoded({
     extended: false
 }));
 
+var socket = require('socket.io');
+
 //we get rest user api definition with routes
 var user = require('./restAPI/userRoutes');
 
@@ -122,10 +124,25 @@ var RproServer = function() {
      *  Start the server (starts up the sample application).
      */
     self.start = function() {
+        
         //  Start the app on the specific interface (and port).
-        self.app.listen(self.port, self.ipaddress, function() {
+        var server = self.app.listen(self.port, self.ipaddress, function() {
             console.log('%s: Node server started on %s:%d ...',
                         Date(Date.now() ), self.ipaddress, self.port);
+        });
+        
+       var io = socket.listen(server);
+       
+       io.on('connection', function(socket) {
+        console.log('new connection');
+
+            io.on('add-customer', function(customer) {
+                socket.emit('notification', {
+                message: 'new customer',
+                customer: customer
+                });
+            });
+        
         });
     };
 
@@ -138,5 +155,9 @@ var RproServer = function() {
  */
 var zapp = new RproServer();
 zapp.initialize();
+
+
+
 zapp.start();
+
 

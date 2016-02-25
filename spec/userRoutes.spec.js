@@ -17,6 +17,7 @@ var user1 = {
                 industry : '',
                 pictureUrl : '',
                 positions: [],
+                location: {},
                 specialties:'',
                 contacts:[{
                     id:'2'
@@ -34,6 +35,7 @@ var user2 = {
                 industry : '',
                 pictureUrl : '',
                 positions: [],
+                location: {},
                 specialties:'',
                 contacts:[],
                 place : {}    
@@ -49,6 +51,7 @@ var user3 = {
                 industry : '',
                 pictureUrl : '',
                 positions: [],
+                location:{},
                 specialties:'',
                 contacts:[],
                 place : {}    
@@ -130,6 +133,18 @@ describe('POST /user/:id', function(){
         })
         .end(done);         
     });
+    
+    it('respond with "not found" if  route isn\'t found',function(done){
+        rest.post('/toto/')
+        .send({}) 
+        .expect(function(res) {
+            
+            expect(res.status).toBe(404);       
+                        
+        })
+        .end(done);         
+    });
+    
     
     it('respond with user updated if id found and there is data to update', function(done){
         var usertmp = user3;

@@ -22,6 +22,7 @@ var userDbStub = [
        industry : '',
        pictureUrl : '',
        positions: [],
+       location: {},
        specialties:'',
        contacts:[{
            id:'2'
@@ -37,6 +38,7 @@ var userDbStub = [
        industry : '',
        pictureUrl : '',
        positions: [],
+       location: {},
        specialties:'',
        contacts:[],
        place : {}    

@@ -136,12 +136,12 @@ var RproServer = function() {
        io.on('connection', function(socket) {
         console.log('new connection');
 
-            io.on('add-customer', function(customer) {
-                socket.emit('notification', {
-                message: 'new customer',
-                customer: customer
-                });
-            });
+            // io.on('add-customer', function(customer) {
+            //     socket.emit('notification', {
+            //     message: 'new customer',
+            //     customer: customer
+            //     });
+            // });
         
         });
     };
@@ -155,9 +155,4 @@ var RproServer = function() {
  */
 var zapp = new RproServer();
 zapp.initialize();
-
-
-
 zapp.start();
-
-

@@ -340,8 +340,6 @@ function rotateSuggestion(suggestions){
             suggestions.rotationIndex = suggestions.rotationIndex + rotationSize; // DB UPDATE BY REFERENCES
         } else {      
            //we push the last element of the structure to be suggested
-           console.log('suggestion size '+ suggestLength);
-           console.log('rotationIndex '+ suggestions.rotationIndex);
            for (var i = suggestions.rotationIndex; i < suggestLength; i++) {
                 usersSuggested.push(getUser(cptblUsers[i].userId,null));              
            }

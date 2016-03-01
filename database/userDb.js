@@ -32,7 +32,7 @@ var userDbStub = [
        contacts:[{
            id:'2'
        }],
-       place : {}    
+      "place":{"uuid":"","associatedPlace":"Inconnu"}   
     },
     {
        id:'2',
@@ -67,7 +67,7 @@ var userDbStub = [
        location: {"country":{"code":"fr"},"name":"Nantes Area, France"},
        specialties:'',
        contacts:[],
-       place : {}    
+       "place":{"uuid":"","associatedPlace":"Inconnu"} 
     },
     {  
         id:"1ST3xUcP1E",

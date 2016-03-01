@@ -115,34 +115,77 @@ var userDbStub = [
             associatedPlace:"Inconnu"
         }
     },
-    {"id":"b2KvTMBUGK",
-    "firstName":"Charles",
-    "lastName":"Gallard",
-    "emailAddress":"morpheus0010@msn.com",
-    "password":"ca52b6563d364dbc4a0ffdceee6a30abbbb55a03",
-    "headline":"Ingénieur en Technologies de l'Information chez CGI en France",
-    "industry":"Information Technology and Services",
-    
-    "pictureUrl":"https://media.licdn.com/mpr/mprx/0_Pz_4iq_h5jw7R2DbrizMe_x38dnaRp76Mkc45hX3TuV7Y2OQvAzZw-E3_doaYDxR0kUMw_dTdmUfZ4KwVQQXIhHSumUmZ4sbMQQRh3j8b7mGtaTRzcrv8v1l2RTYA4DnrLGqb0t7yne",
-    "positions":{
-                    "_total":1,
-                    "values":[{
-                        "company":{
-                            "id":2628661,
-                            "industry":"Information Technology and Services",
-                            "name":"CGI en France",
-                            "size":"10,001+ employees",
-                            "type":"Public Company"
-                        },
-                        "id":733135816,
-                        "isCurrent":true,
-                        "startDate":{"month":11,"year":2015},
-                        "title":"Ingénieur en Technologies de l'Information"
-                }]},
-    "location":{"country":{"code":"fr"},"name":"Nantes Area, France"},
-    "specialties":"",
-    "contacts":[],
-    "place":{"uuid":"","associatedPlace":"Inconnu"}
+    {
+        "id":"b2KvTMBUGK",
+        "firstName":"Charles",
+        "lastName":"Gallard",
+        "emailAddress":"morpheus0010@msn.com",
+        "password":"ca52b6563d364dbc4a0ffdceee6a30abbbb55a03",
+        "headline":"Ingénieur en Technologies de l'Information chez CGI en France",
+        "industry":"Information Technology and Services",
+        
+        "pictureUrl":"https://media.licdn.com/mpr/mprx/0_Pz_4iq_h5jw7R2DbrizMe_x38dnaRp76Mkc45hX3TuV7Y2OQvAzZw-E3_doaYDxR0kUMw_dTdmUfZ4KwVQQXIhHSumUmZ4sbMQQRh3j8b7mGtaTRzcrv8v1l2RTYA4DnrLGqb0t7yne",
+        "positions":{
+                        "_total":1,
+                        "values":[{
+                            "company":{
+                                "id":2628661,
+                                "industry":"Information Technology and Services",
+                                "name":"CGI en France",
+                                "size":"10,001+ employees",
+                                "type":"Public Company"
+                            },
+                            "id":733135816,
+                            "isCurrent":true,
+                            "startDate":{"month":11,"year":2015},
+                            "title":"Ingénieur en Technologies de l'Information"
+                    }]},
+        "location":{"country":{"code":"fr"},"name":"Nantes Area, France"},
+        "specialties":"",
+        "contacts":[],
+        "place":{"uuid":"","associatedPlace":"Inconnu"}
+    },
+    {
+        "id": "lGyoWsXhU0",
+        "firstName": "david",
+        "lastName": "perrai",
+        "emailAddress": "davidperrai@gmail.com",
+        "password": "ca52b6563d364dbc4a0ffdceee6a30abbbb55a03",
+        "headline": "Stagiaire concepteur de solutions informatique : internet des objets et usages innovants chez CGI en France",
+        "industry": "Computer Software",
+        "pictureUrl": "https://media.licdn.com/mpr/mprx/0_PtRfS_ZpMVaYt6XzMt73QBTjZ2AGlX9Npi_fIBNpYgi_lqsvrnS3h-npRgeGqNczrk77L6zyr2CiBhU4p3O15BZKv2CCBhOMp3O2mnSgYDBag9LLKKeCaG_uzMZtOhWevCsidHw8L-W",
+        "positions": {
+            "_total": 1,
+            "values": [{
+                "company": {
+                    "id": 2628661,
+                    "industry": "Information Technology and Services",
+                    "name": "CGI en France",
+                    "size": "10,001+ employees",
+                    "type": "Public Company"
+                },
+                "id": 775983171,
+                "isCurrent": true,
+                "startDate": {
+                    "month": 1,
+                    "year": 2016
+                },
+                "summary": "Conception et réalisation d'un P.O.C sur l'amélioration des échanges et mise en relations des personnes dans des lieux géolocalisés.\nMise en place de balises beacons pour une géolocalisation indoor et d'arduinos pour l'échange de médias.\nDéveloppement d'une application mobile réalisé avec Angular2, ionic 2, HTML , CSS, Codova, Typescript et d'un serveur REST en NodeJS.",
+                "title": "Stagiaire concepteur de solutions informatique : internet des objets et usages innovants"
+            }]
+        },
+        "location": {
+            "country": {
+                "code": "fr"
+            },
+            "name": "Nantes Area, France"
+        },
+        "specialties": "",
+        "contacts": [],
+        "place": {
+            "uuid": "",
+            "associatedPlace": "Inconnu"
+        }
     }
 ]
 

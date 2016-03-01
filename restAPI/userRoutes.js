@@ -337,11 +337,11 @@ function rotateSuggestion(suggestions){
                 usersSuggested.push(getUser(cptblUsers[i].userId,null));                
             }
             
-            suggestions.rotationIndex = (suggestions.rotationIndex + rotationSize); // DB UPDATE BY REFERENCES
-             
-        } else {
-                       
+            suggestions.rotationIndex = suggestions.rotationIndex + rotationSize; // DB UPDATE BY REFERENCES
+        } else {      
            //we push the last element of the structure to be suggested
+           console.log('suggestion size '+ suggestLength);
+           console.log('rotationIndex '+ suggestions.rotationIndex);
            for (var i = suggestions.rotationIndex; i < suggestLength; i++) {
                 usersSuggested.push(getUser(cptblUsers[i].userId,null));              
            }
@@ -533,9 +533,10 @@ router.get('/', function(req,res,next) {
  * !! TODO : DELETE THIS FUNCTION OR COMMENT IT IN PRODUCTION
  */
 .post('/rotation/:nb',function(req,res,next){
-    if(req.params.nb && Number.parseInt(req.params.nb)){
-        rotationSize = req.params.nb;
-        res.send(rotationSize);
+    var rotation =  Number.parseInt(req.params.nb);
+    if(req.params.nb && Number.isInteger(rotation)){
+        rotationSize = rotation;
+        res.send(''+rotationSize);
     }else{
         res.status(400).send('you have not send a number')
     }

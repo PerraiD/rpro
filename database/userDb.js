@@ -59,7 +59,7 @@ var userDbStub = [
                     month:12,
                     year:2014
                     },
-                    summary:"Agent secret dans différentes mission pour la cia",
+                    summary:"Agent secret dans différentes missions pour la cia",
                     title:"Agent de la cia"
                 }
             ]

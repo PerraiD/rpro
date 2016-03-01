@@ -18,11 +18,11 @@ var suggestDb = require('../database/suggestionDb');
 
 // global variable editable for the computeCompatibilities function 
 // ponderation shouldn't exceed 1 , they can if sum(ponderations) === number of ponderations
-var ponderation = {industry : 1.25, location : 1, company : 1.5 , summary : 0.5, headline : 0.75}
+var ponderation = {industry : 1.25, location : 1, company : 1.5 , summary : 0.5, headline : 0.75, place : 1}
 
 // matching pourcentage to get a user to be compatible with an other,
 // this pourcentage is >= 50
-var pourcentageMin = 50;
+var pourcentageMin = 60;
 
 // number of suggestion to be show in the application
 // also represent the number of suggestion by rotation
@@ -275,21 +275,27 @@ function computeCompatibility(user,possibleUsers) {
     // maximum pourcentage with those ponderation => 100
     // ponderation shouldn't exceed 1 , they can if sum(ponderations) === number of ponderations
        
-
     var compatibilities = [];
+    // we check that user have some data to avoid error in substructures values[x]
+    var userSummary  = user.positions.values  !== undefined ? user.positions.values[0].summary : '';
+    var userCompany = user.positions.values   !== undefined ? user.positions.values[0].company.name : '';
     
-    // we now determine  criterias in commun
+    // we now determine criterias in common
     possibleUsers.forEach(function(possibleUser) {
         var pourcentage = 0;
+        // we check that possible user have some data to avoid undefined error in substructures values[x]
+        var pUserSummary = possibleUser.positions.values   !== undefined ? possibleUser.positions.values[0].summary : '';
+        var pUserCompany = possibleUser.positions.values   !== undefined ? possibleUser.positions.values[0].company.name : '';
         
         // criterias value = 0 or 1 
         var criterias = {
                 industry : txtfieldCompatibily(user.industry, possibleUser.industry,'english'),
-                summary  : txtfieldCompatibily(user.positions.values[0].summary, possibleUser.positions.values[0].summary,'french'),
+                summary  : txtfieldCompatibily(userSummary,pUserSummary,'french'),
                 headline : txtfieldCompatibily(user.headline, possibleUser.headline,'french'),
-                // we want exact same location not just based on a word in common
+                // we want exact same location and company not just based on a word in common
                 location : user.location.name === possibleUser.location.name ? 1 : 0,
-                company  : user.positions.values[0].company.name === possibleUser.positions.values[0].company.name ? 1 : 0    
+                company  : userCompany === pUserCompany ? 1 : 0,
+                place    : user.place.associatedPlace === possibleUser.place.associatedPlace ? 1 : 0      
         }
                
            

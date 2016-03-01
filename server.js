@@ -130,20 +130,7 @@ var RproServer = function() {
             console.log('%s: Node server started on %s:%d ...',
                         Date(Date.now() ), self.ipaddress, self.port);
         });
-        
-       var io = socket.listen(server);
-       
-       io.on('connection', function(socket) {
-        console.log('new connection');
-
-            // io.on('add-customer', function(customer) {
-            //     socket.emit('notification', {
-            //     message: 'new customer',
-            //     customer: customer
-            //     });
-            // });
-        
-        });
+               
     };
 
 }; 

@@ -529,6 +529,18 @@ router.get('/', function(req,res,next) {
      }                     
 })
 /**
+ * debug function to set rotationSize directly on openshift
+ * !! TODO : DELETE THIS FUNCTION OR COMMENT IT IN PRODUCTION
+ */
+.post('/rotation/:nb',function(req,res,next){
+    if(req.params.nb && Number.parseInt(req.params.nb)){
+        rotationSize = req.params.nb;
+        res.send(rotationSize);
+    }else{
+        res.status(400).send('you have not send a number')
+    }
+})
+/**
  * put function to create a user 
  * 
  * we start to check if there is an existing user 

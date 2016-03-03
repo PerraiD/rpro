@@ -38,9 +38,9 @@ router.get('/', function(req,res,next){
             sfdb.location.push(user.location.name);
         }
         
-        if(sfdb.placeField.indexOf(user.place.associatedPlace) < 0) {
+        if(sfdb.place.indexOf(user.place.associatedPlace) < 0) {
             if(user.place.associatedPlace !== 'Inconnu') {
-                 sfdb.placeField.push(user.place.associatedPlace);
+                 sfdb.place.push(user.place.associatedPlace);
             }           
         }
         

@@ -2,7 +2,6 @@ var searchFieldsDb = {
    industry: [],               
    company: [],
    location: [],
-   journey: [],
-   placeField: []       
+   place: []       
 }
 module.exports = searchFieldsDb;

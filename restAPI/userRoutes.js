@@ -418,7 +418,6 @@ router.get('/', function(req,res,next) {
      }
     }
     
-    
 })
 
 /**
@@ -470,6 +469,91 @@ router.get('/', function(req,res,next) {
        res.send(rotateSuggestion(suggestions));           
 })
 
+/**
+ * get function that return a user array that match with params criteria 
+ */
+.get('/by/:fieldname/:value',function(req,res,next) {
+    
+   if(req.params.fieldname !== '' && Number.isNaN(Number.parseInt(req.params.fieldname)) && req.params.value !== '') {       
+       
+       var userSearched = [];
+       var fieldvalue = req.params.value;
+       var tmpUsersMatching = [];
+       var exactUser = {};
+       
+       userDbStub.forEach(function(user) {
+            switch (req.params.fieldname) {
+                
+                case 'industry':
+                    if(user.industry === fieldvalue) {
+                        userSearched.push(user);
+                    }
+                    break;
+                
+                case 'company': 
+                    if (user.positions._total > 0) {
+                        if (user.positions.values[0].company.name === fieldvalue ) {
+                            userSearched.push(user);
+                        }
+                    }    
+                    break;
+                
+                case 'location':
+                    if (user.location === fieldvalue ) {
+                        userSearched.push(user);
+                    }
+                    break;
+                
+                case 'place': 
+                    //TODO IMPLEMENT IT WHEN PLACE DB IS READY
+                    break;
+                        
+                case 'flname':
+                    // we don't know if user put a first name or/and a last name and the order 
+                    var fullname = fieldvalue.toLowerCase().split(' ');
+                    
+                    // there is at least a first name and lastname 
+                    if (fullname.length >= 2) {
+                        var fnMatch = false;
+                        var lnMatch = false;
+                                             
+                        fullname.forEach(function(element) {
+                            fnMatch = (element === user.firstName.toLowerCase());
+                            lnMatch = (element === user.lastName.toLowerCase());                                                                                                                   
+                        }, this);
+                        
+                        if (fnMatch && lnMatch) {                           
+                           exactUser = user; // we found exactly the user 
+                           
+                        } else if (fnMatch || lnMatch) {
+                           tmpUsersMatching.push(user); // we provide a list of all user that can match 
+                        }                      
+                       
+                    }else{ // there is only a first or last name so we provide a list 
+                        console.log(user.firstName.toLowerCase() + " " + user.lastName.toLowerCase());
+                        if (fullname[0] === user.firstName.toLowerCase() || fullname[0] === user.lastName.toLowerCase()) {
+                            userSearched.push(user);
+                        }
+                    }
+                    
+                    break;
+            }
+       }, this);
+       // for the flname we take the exact user otherwise we push the list 
+       if (req.params.fieldname === 'flname') {
+           if ( JSON.stringify(exactUser) !== '{}' ) {
+              userSearched.push(exactUser); 
+           }else{               
+               if(tmpUsersMatching.length > 0) {
+                   userSearched = tmpUsersMatching;
+               }               
+           }
+       }
+       res.json(userSearched);
+   } else {
+       res.status(403).send('fieldname or value malformed');
+   }
+}) 
 /**
  * function to authenticate user 
  */

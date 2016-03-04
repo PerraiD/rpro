@@ -146,7 +146,7 @@ var userDbStub = [
         "place":{"uuid":"","associatedPlace":"Inconnu"}
     },
     {
-        "id": "lGyoWsXhU0",
+        "id": "lGyoWsXhU",
         "firstName": "david",
         "lastName": "perrai",
         "emailAddress": "davidperrai@gmail.com",

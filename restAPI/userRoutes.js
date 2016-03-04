@@ -15,6 +15,7 @@ router.use(bodyParser.urlencoded({
 // so if you modify subvalues they will be modify in theses variables !!
 var userDbStub = require('../database/userDb');
 var suggestDb = require('../database/suggestionDb');
+var searchFDb = require('../database/searchFieldsDb'); 
 
 // global variable editable for the computeCompatibilities function 
 // ponderation shouldn't exceed 1 , they can if sum(ponderations) === number of ponderations
@@ -472,7 +473,7 @@ router.get('/', function(req,res,next) {
 /**
  * get function that return a user array that match with params criteria 
  */
-.get('/by/:fieldname/:value',function(req,res,next) {
+.get('/by/:fieldname/:value', function(req,res,next) {
     
    if(req.params.fieldname !== '' && Number.isNaN(Number.parseInt(req.params.fieldname)) && req.params.value !== '') {       
        
@@ -499,7 +500,7 @@ router.get('/', function(req,res,next) {
                     break;
                 
                 case 'location':
-                    if (user.location === fieldvalue ) {
+                    if (user.location.name === fieldvalue ) {
                         userSearched.push(user);
                     }
                     break;
@@ -652,6 +653,26 @@ router.get('/', function(req,res,next) {
            // check the parameters and put in the db.
             var created = createUser(reqBody,res);
             if( created  && JSON.stringify(created) !== '{}' ) {
+                
+                //we insert somes of its informations in the searchFieldsDb  
+                if(searchFDb.industry.indexOf(created.industry) < 0) {
+                    searchFDb.industry.push(created.industry);
+                }
+                
+                if(searchFDb.company.indexOf(created.positions.values[0].company.name) < 0) {
+                    searchFDb.company.push(created.positions.values[0].company.name);
+                }
+                
+                if(searchFDb.location.indexOf(created.location.name) < 0) {
+                    searchFDb.location.push(created.location.name);
+                }
+                
+                if(searchFDb.place.indexOf(created.place.associatedPlace) < 0) {
+                    if(created.place.associatedPlace !== 'Inconnu') {
+                        searchFDb.place.push(created.place.associatedPlace);
+                    }           
+                }
+                
                 res.send(created);
             }else{
                 res.status(504).send('user creation issue');

@@ -42,6 +42,7 @@ var userDbStub = [
        password : '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',
        headline:"Agent de la cia",
        industry:"Computer Software",
+       pictureUrl:'',
        positions:{  
             _total:1,
             values:[  

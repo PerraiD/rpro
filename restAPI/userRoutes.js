@@ -366,6 +366,31 @@ function rotateSuggestion(suggestions){
     return usersSuggested;
 }
 
+/**
+ * function to adding data to the SearchFieldsDb 
+ */
+function updateSearchFieldsDb(user) {
+     //we insert somes of its informations in the searchFieldsDb  
+        if(searchFDb.industry.indexOf(user.industry) < 0) {
+            searchFDb.industry.push(user.industry);
+        }
+        
+        if(searchFDb.company.indexOf(user.positions.values[0].company.name) < 0) {
+            searchFDb.company.push(user.positions.values[0].company.name);
+        }
+        
+        if(searchFDb.location.indexOf(user.location.name) < 0) {
+            searchFDb.location.push(user.location.name);
+        }
+        
+        if(searchFDb.place.indexOf(user.place.associatedPlace) < 0) {
+            if(user.place.associatedPlace !== 'Inconnu') {
+                searchFDb.place.push(user.place.associatedPlace);
+            }           
+        }
+}
+
+
 /**=============================================================
  * ======= all routes for the user =============================
  *///===========================================================
@@ -576,6 +601,8 @@ router.get('/', function(req,res,next) {
     var user = getUser(req.params.id,res);
     if(user && JSON.stringify(user) !== '{}') {
         user =  updateUser(user,req.body);
+        // we post new information in the database like place values that change often
+        updateSearchFieldsDb(user);
         res.json(user);   
     }  
 })
@@ -654,24 +681,8 @@ router.get('/', function(req,res,next) {
             var created = createUser(reqBody,res);
             if( created  && JSON.stringify(created) !== '{}' ) {
                 
-                //we insert somes of its informations in the searchFieldsDb  
-                if(searchFDb.industry.indexOf(created.industry) < 0) {
-                    searchFDb.industry.push(created.industry);
-                }
-                
-                if(searchFDb.company.indexOf(created.positions.values[0].company.name) < 0) {
-                    searchFDb.company.push(created.positions.values[0].company.name);
-                }
-                
-                if(searchFDb.location.indexOf(created.location.name) < 0) {
-                    searchFDb.location.push(created.location.name);
-                }
-                
-                if(searchFDb.place.indexOf(created.place.associatedPlace) < 0) {
-                    if(created.place.associatedPlace !== 'Inconnu') {
-                        searchFDb.place.push(created.place.associatedPlace);
-                    }           
-                }
+                // we push new informations to searchFieldDB
+                updateSearchFieldsDb(user);
                 
                 res.send(created);
             }else{

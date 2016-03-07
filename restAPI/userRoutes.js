@@ -317,7 +317,26 @@ function computeCompatibility(user,possibleUsers) {
 
     return compatibilities;
 }
+/**
+ * utilities function to know if an element is a json or a string
+ */
+function isJson(item) {
+    item = typeof item !== "string"
+        ? JSON.stringify(item)
+        : item;
 
+    try {
+        item = JSON.parse(item);
+    } catch (e) {
+        return false;
+    }
+
+    if (typeof item === "object" && item !== null) {
+        return true;
+    }
+
+    return false;
+}
 /**
  * function that rotate on the suggestions structure for the user to get a new list of subjections each time
  * @ return suggestions list with users datas; 
@@ -375,18 +394,25 @@ function updateSearchFieldsDb(user) {
             searchFDb.industry.push(user.industry);
         }
         
-        if(searchFDb.company.indexOf(user.positions.values[0].company.name) < 0) {
-            searchFDb.company.push(user.positions.values[0].company.name);
+        if(user.positions !== undefined && user.positions !== '' && JSON.stringify(user.positions) !== '{}') {
+            
+          if(searchFDb.company.indexOf(user.positions.values[0].company.name) < 0) {
+                searchFDb.company.push(user.positions.values[0].company.name);
+            }  
+        }
+            
+        if(user.location !== undefined && user.location !== '' && JSON.stringify(user.location) !== '{}') {
+            if(searchFDb.location.indexOf(user.location.name) < 0) {
+                searchFDb.location.push(user.location.name);
+            }
         }
         
-        if(searchFDb.location.indexOf(user.location.name) < 0) {
-            searchFDb.location.push(user.location.name);
-        }
-        
-        if(searchFDb.place.indexOf(user.place.associatedPlace) < 0) {
-            if(user.place.associatedPlace !== 'Inconnu') {
-                searchFDb.place.push(user.place.associatedPlace);
-            }           
+        if(user.place !== undefined && user.place !== '' && JSON.stringify(user.place) !== '{}') {
+            if(searchFDb.place.indexOf(user.place.associatedPlace) < 0) {
+                if(user.place.associatedPlace !== 'Inconnu') {
+                    searchFDb.place.push(user.place.associatedPlace);
+                }           
+            }
         }
 }
 
@@ -498,86 +524,95 @@ router.get('/', function(req,res,next) {
 /**
  * get function that return a user array that match with params criteria 
  */
-.get('/by/:fieldname/:value', function(req,res,next) {
-    
-   if(req.params.fieldname !== '' && Number.isNaN(Number.parseInt(req.params.fieldname)) && req.params.value !== '') {       
+.get('/by/:value', function(req,res,next) {
+   
+  
+  if(isJson(req.params.value) && JSON.stringify(req.params.value !== '{}')) {       
        
        var userSearched = [];
-       var fieldvalue = req.params.value;
-       var tmpUsersMatching = [];
-       var exactUser = {};
+       var fieldvalues = JSON.parse(req.params.value);
+    //    var tmpUsersMatching = [];
+    //    var exactUser = {};
+       
        
        userDbStub.forEach(function(user) {
-            switch (req.params.fieldname) {
-                
-                case 'industry':
-                    if(user.industry === fieldvalue) {
-                        userSearched.push(user);
-                    }
-                    break;
-                
-                case 'company': 
-                    if (user.positions._total > 0) {
-                        if (user.positions.values[0].company.name === fieldvalue ) {
-                            userSearched.push(user);
-                        }
-                    }    
-                    break;
-                
-                case 'location':
-                    if (user.location.name === fieldvalue ) {
-                        userSearched.push(user);
-                    }
-                    break;
-                
-                case 'place': 
-                    //TODO IMPLEMENT IT WHEN PLACE DB IS READY
-                    break;
+            var isMatching = true; // when a criteria isn't repected the user doesn't match
+            
+            for (var criteria in fieldvalues) {
+  
+                if(fieldvalues[criteria] !== '') {
+       
+                    switch (criteria) {
                         
-                case 'flname':
-                    // we don't know if user put a first name or/and a last name and the order 
-                    var fullname = fieldvalue.toLowerCase().split(' ');
-                    
-                    // there is at least a first name and lastname 
-                    if (fullname.length >= 2) {
-                        var fnMatch = false;
-                        var lnMatch = false;
-                                             
-                        fullname.forEach(function(element) {
-                            fnMatch = (element === user.firstName.toLowerCase());
-                            lnMatch = (element === user.lastName.toLowerCase());                                                                                                                   
-                        }, this);
+                        case 'industry':
+                            if(user.industry !== fieldvalues[criteria]) {
+                                isMatching = false;
+                            }
+                            break;
                         
-                        if (fnMatch && lnMatch) {                           
-                           exactUser = user; // we found exactly the user 
-                           
-                        } else if (fnMatch || lnMatch) {
-                           tmpUsersMatching.push(user); // we provide a list of all user that can match 
-                        }                      
-                       
-                    }else{ // there is only a first or last name so we provide a list 
-                        console.log(user.firstName.toLowerCase() + " " + user.lastName.toLowerCase());
-                        if (fullname[0] === user.firstName.toLowerCase() || fullname[0] === user.lastName.toLowerCase()) {
-                            userSearched.push(user);
-                        }
+                        case 'company': 
+                            if (user.positions._total > 0) {
+                                if (user.positions.values[0].company.name.toLowerCase() !== fieldvalues[criteria].toLowerCase() ) {                             
+                                    isMatching = false;
+                                }
+                            }    
+                            break;
+                        
+                        case 'location':
+                            if (user.location.name !== fieldvalues[criteria] ) {
+                                isMatching = false;
+                            }
+                            break;
+                        
+                        case 'place': 
+                            //TODO IMPLEMENT IT WHEN PLACE DB IS READY
+                            break;
+                                
+                        case 'flname':
+                            // we don't know if user put a first name or/and a last name and the order 
+                            var fullname = fieldvalues[criteria].toLowerCase().split(' ');
+                            
+                            // there is at least a first name and lastname 
+                            if (fullname.length >= 2) {
+                                var fnMatch = false;
+                                var lnMatch = false;
+                                                    
+                                fullname.forEach(function(element) {
+                                    fnMatch = (element === user.firstName.toLowerCase());
+                                    lnMatch = (element === user.lastName.toLowerCase());                                                                                                                   
+                                }, this);
+                                
+                                if (!fnMatch && !lnMatch) {
+                                    isMatching = false; 
+                                }                      
+                            
+                            }else{ // there is only a first or last name so we provide a list 
+                                
+                                if (fullname[0] !== user.firstName.toLowerCase() && fullname[0] !== user.lastName.toLowerCase()) {
+                                   isMatching = false
+                                }
+                            }
+                                
+                            break;
                     }
-                    
-                    break;
+                }                                                   
             }
+          
+            if(isMatching) {                
+                userSearched.push(user);
+            }  
        }, this);
-       // for the flname we take the exact user otherwise we push the list 
-       if (req.params.fieldname === 'flname') {
-           if ( JSON.stringify(exactUser) !== '{}' ) {
-              userSearched.push(exactUser); 
-           }else{               
-               if(tmpUsersMatching.length > 0) {
-                   userSearched = tmpUsersMatching;
-               }               
-           }
-       }
+    //    // for the flname we take the exact user otherwise we push the list 
+    //    if (fieldvalues['flname'] !== '') {
+    //        if ( JSON.stringify(exactUser) !== '{}' ) {
+    //           userSearched.push(exactUser); 
+    //        }else{
+    //           userSearched = tmpUsersMatching;
+    //        }
+    //    }
        res.json(userSearched);
    } else {
-       res.status(403).send('fieldname or value malformed');
+       res.status(403).send('field values malformed');
    }
 }) 
 /**

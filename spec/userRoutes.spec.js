@@ -27,9 +27,11 @@ describe('PUT /user/', function() {
     });
     
     it('respond with new user Object if id and email is defined', function(done){
+        
         rest.put('/user/')
         .send({id:'dazdsqre',emailAddress:'johndoe@mail.com'})
         .expect(function(res) {
+
             expect(res.status).toBe(200);       
             expect(res.body.id).toEqual('dazdsqre');
             expect(res.body.emailAddress).toEquals('johndoe@mail.com');

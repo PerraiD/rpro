@@ -60,11 +60,11 @@ router.get('/', function(req,res,next){
 .get('/status/:userId1/:userId2',function(req,res,next) {
     var status = '';
     var userId1 = req.params.userId1;
-    var userId2 = req.params.userId1;
+    var userId2 = req.params.userId2;
     
     if(userId1 && userId1 != '' && userId2 && userId2 != '') {
         addRequestDb.forEach(function(relation) {
-            if(relation.userAskingId == userId1 && relation.userAskedId == userId2){
+            if(relation.userAskingId === userId1 && relation.userAskedId === userId2){
                status = relation.status; 
             }
         }, this);

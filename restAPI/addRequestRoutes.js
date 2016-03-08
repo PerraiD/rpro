@@ -64,7 +64,7 @@ router.get('/', function(req,res,next){
     
     if(userId1 && userId1 != '' && userId2 && userId2 != '') {
         addRequestDb.forEach(function(relation) {
-            if(relation.userAskingId == userId1 && relation.userAskedIdId == userId2){
+            if(relation.userAskingId == userId1 && relation.userAskedId == userId2){
                status = relation.status; 
             }
         }, this);

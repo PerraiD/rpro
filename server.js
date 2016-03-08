@@ -19,6 +19,9 @@ var beacon = require('./restAPI/beaconRoutes');
 //we get rest search fields api definition with routes
 var searchfields = require('./restAPI/searchFieldsRoutes');
 
+// we get rest add request api definition with routes 
+var addrequest = require('./restAPI/addRequestRoutes');
+
 /**
  *  Rpro server
  */
@@ -100,9 +103,13 @@ var RproServer = function() {
         // the url will be http://.../beacon/
         self.app.use('/beacon',beacon);
         
-         // we push beacon routes to the router 
+         // we push searchfields routes to the router 
         // the url will be http://.../searchfields/
         self.app.use('/searchfields',searchfields);
+        
+         // we push searchfields routes to the router 
+        // the url will be http://.../addRequest/
+        self.app.use('/addrequest',addrequest);
         
          // catch 404 and forward to error handler
         self.app.use(function(req, res, next) {

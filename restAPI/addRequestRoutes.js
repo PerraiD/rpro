@@ -29,7 +29,7 @@ router.get('/', function(req,res,next){
             }   
         }, this);
         
-        res.send(addRequests);
+        res.json(addRequests);
         
     }else{
         res.status(403).send('error userIds malformed'); 
@@ -48,7 +48,7 @@ router.get('/', function(req,res,next){
             }   
         }, this);
         
-        res.send(addRequests);
+        res.json(addRequests);
         
     }else{
         res.status(403).send('error userIds malformed'); 
@@ -69,7 +69,7 @@ router.get('/', function(req,res,next){
             }
         }, this);
         
-        res.send(status);
+        res.json({status:status});
         
     }else{
         res.status(403).send('error userIds malformed');
@@ -90,7 +90,7 @@ router.get('/', function(req,res,next){
         //we push the new askRequest
         addRequestDb.push({userAskingId:userId1, userAskedId:userId2, status: 'waiting'});
         
-        res.send(status);
+        res.json({status:status});
         
     }else{
         res.status(403).send('error userIds malformed');

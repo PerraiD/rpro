@@ -132,7 +132,7 @@ router.get('/', function(req,res,next){
         res.status(403).send('error userIds malformed');
     }
     
-})
+});
     
 
 module.exports = router;

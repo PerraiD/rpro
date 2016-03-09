@@ -25,7 +25,8 @@ function error(message,status) {
 function getBeacon(id) {
     var beacon;
     beaconDbStub.forEach(function(element) {
-        if(element.idBeacon === id ) {
+      
+        if(element.idBeacon.toLowerCase() === id.toLowerCase() ) {
             beacon = element;
         }
      }, this);  

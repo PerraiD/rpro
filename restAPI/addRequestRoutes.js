@@ -132,7 +132,20 @@ router.get('/', function(req,res,next){
         res.status(403).send('error userIds malformed');
     }
     
-});
+})
+.delete('/', function(req,res,next) {
+    var userId1 = req.body.userId1 !== undefined ? req.body.userId1 : '' ;
+    var userId2 = req.body.userId2 !== undefined ? req.body.userId2 : '' ;
+    var returnedRequest = {};
+    if( userId1 !== ''  && userId2 !== '') {
+        var index=addRequestDb.map(function(x){
+                                       return (x.userAskingId === userId1 && x.userAskedId === userId2)
+                                   })
+                    .indexOf(true);
+        returnedRequest = addRequestDb.slice(index,1);            
+    }
     
+     res.json(returnedRequest);
+});    
 
 module.exports = router;

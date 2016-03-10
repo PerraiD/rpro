@@ -615,6 +615,16 @@ router.get('/', function(req,res,next) {
        res.status(403).send('field values malformed');
    }
 }) 
+.get('/:id/tokendevice', function(req,res,next){
+    var id = req.params.id;
+  
+    var user = getUser(id,res);
+
+    if(JSON.stringify(user) !== '{}') {     
+        res.send(user.tokenDevice);   
+    }
+    
+})
 /**
  * function to authenticate user 
  */
@@ -690,6 +700,24 @@ router.get('/', function(req,res,next) {
         res.send(''+rotationSize);
     }else{
         res.status(400).send('you have not send a number')
+    }
+})
+/**
+ * post function that set the current token devices
+ */
+.post('/:id/tokendevice',function(req,res,next){
+    var id = req.params.id;
+    var token = req.body.tokenDevice;
+    
+    var user = getUser(id);
+    
+    if(JSON.stringify(user) !== '{}') {
+        if(token !== undefined && token !== '') {
+            user.tokenDevice = token;
+            res.send(user);
+        }else{
+            res.status(403).send('token malformed or unexist')
+        }
     }
 })
 /**

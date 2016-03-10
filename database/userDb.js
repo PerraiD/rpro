@@ -32,7 +32,8 @@ var userDbStub = [
        contacts:[{
            id:'2'
        }],
-      "place":{"uuid":"","associatedPlace":"Inconnu"}   
+      "place":{"uuid":"","associatedPlace":"Inconnu"},
+      "tokenDevice":""
     },
     {
        id:'2',
@@ -68,7 +69,8 @@ var userDbStub = [
        location: {"country":{"code":"fr"},"name":"Nantes Area, France"},
        specialties:'',
        contacts:[],
-       "place":{"uuid":"","associatedPlace":"Inconnu"} 
+       "place":{"uuid":"","associatedPlace":"Inconnu"},
+       "tokenDevice":"" 
     },
     {  
         id:"1ST3xUcP1E",
@@ -114,7 +116,8 @@ var userDbStub = [
         place:{  
             uuid:"",
             associatedPlace:"Inconnu"
-        }
+        },
+        "tokenDevice":""
     },
     {
         "id":"b2KvTMBUGK",
@@ -186,7 +189,8 @@ var userDbStub = [
         "place": {
             "uuid": "",
             "associatedPlace": "Inconnu"
-        }
+        },
+        "tokenDevice":""
     }
 ]
 

@@ -87,7 +87,7 @@ function sendPushNotification(tokendevice,title,message,data){
    
     };
          
-
+  console.log(options);
    request(options, function (err, res, body) {
     if (err) {
         console.log('Error :' ,err)
@@ -178,8 +178,13 @@ router.get('/', function(req,res,next){
         //we push the new askRequest
         addRequestDb.push({userAskingId:userId1, userAskedId:userId2, status: 'waiting'});
         
+        
+        
         // we create the curl request to prevent user. 
-        sendPushNotification([userId1.tokenDevice],"Nouvelle invitation",userId1.firstName+'vous invite',userId1);
+        var user1= getUser(userId1);
+        var user2= getUser(userId2);
+       
+        sendPushNotification([user1.tokenDevice],"Nouvelle invitation",user2.firstName+' vous invite',user2);
         res.json({status:status});
         
     }else{

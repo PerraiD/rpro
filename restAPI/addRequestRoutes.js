@@ -87,13 +87,11 @@ function sendPushNotification(tokendevice,title,message,data){
    
     };
          
-  console.log(options);
    request(options, function (err, res, body) {
     if (err) {
         console.log('Error :' ,err)
         return
-    }
-    console.log(res);     
+    }   
     console.log(' Body :', body)
 
 });
@@ -179,12 +177,14 @@ router.get('/', function(req,res,next){
         addRequestDb.push({userAskingId:userId1, userAskedId:userId2, status: 'waiting'});
         
         
-        
         // we create the curl request to prevent user. 
         var user1= getUser(userId1);
         var user2= getUser(userId2);
+        
+        if(userId2.tokenDevice !== '') {
+             sendPushNotification([user2.tokenDevice],"Nouvelle invitation",user1.firstName+' vous invite', user2);
+        }
        
-        sendPushNotification([user1.tokenDevice],"Nouvelle invitation",user2.firstName+' vous invite',user2);
         res.json({status:status});
         
     }else{

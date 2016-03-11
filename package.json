@@ -23,6 +23,7 @@
     "express": "*",
     "jasmine": "^2.4.1",
     "keyword-extract": "^0.1.6",
+    "request": "^2.69.0",
     "sha1": "^1.1.1"
   },
   "devDependencies": {

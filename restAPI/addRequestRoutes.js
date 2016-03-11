@@ -1,5 +1,5 @@
 'use strict';
-
+var request        = require('request');
 var express     = require('express');
 var bodyParser  = require('body-parser');
 var router      = express.Router();
@@ -12,6 +12,94 @@ var userDb = require('../database/userDb');
 var addRequestDb = require('../database/addRequestDb');
 
 
+/**
+ * function to retrieve user in userStub by its id
+ * @param id of the user , res the response request
+ * @return user  object
+ */
+function getUser(id,res) {
+     var user;
+     if ( id && id !== '' && id !== undefined )  {
+        userDb.forEach(function(element) {
+            if(element.id === id ) {
+                user = element;
+            }
+        }, this); 
+                    
+        if( !user && user === undefined) {
+            if(res != null){
+                res.status(404).send('user not found');
+            }else{
+                console.log('user not found');
+            }            
+        }
+    
+    } else {
+        if(res != null){
+            res.status(401).send('id isn\'t defined');   
+        }else{
+            console.log('id isn\'t defined');
+        }           
+    }    
+    return user;
+}
+
+/**
+ * definition of the request for pushnotification
+ * 
+ */
+function sendPushNotification(tokendevice,title,message,data){
+    
+
+    // Define relevant info
+    var jwt = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhYjA0MDJhYS1hYTkyLTRiNTMtOTQwNS1hMzg3ODE2YjZlYjEifQ.a18d3wuYXKWdxutsydP4RVJ3-NJZS4BXjMnv8_psSAI';
+    var tokens = tokendevice; //array
+    var profile = 'rpro';
+
+    // Build the request object
+    var options = {
+    method: 'POST',
+    url: 'https://api.ionic.io/push/notifications',
+    json:true,
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + jwt
+    },
+    body :{
+        "tokens": tokens,
+        "profile": profile,
+        "notification": {
+            "title": title,
+            "message": message,
+            "payload": data,
+            "android": {
+                "title": title,
+                "message": message,
+                "delay_while_idle": true,
+                "priority":"high",
+            },
+            "ios": {
+                "title": "Howdy",
+                "message": "Hello iOS!"
+            }
+        }
+    }
+   
+    };
+         
+
+   request(options, function (err, res, body) {
+    if (err) {
+        console.log('Error :' ,err)
+        return
+    }
+    console.log(res);     
+    console.log(' Body :', body)
+
+});
+    
+   
+}
 //TODO : using this for debuging otherwise it should be deleted in production
 router.get('/', function(req,res,next){
     res.json(addRequestDb);
@@ -90,6 +178,8 @@ router.get('/', function(req,res,next){
         //we push the new askRequest
         addRequestDb.push({userAskingId:userId1, userAskedId:userId2, status: 'waiting'});
         
+        // we create the curl request to prevent user. 
+        sendPushNotification([userId1.tokenDevice],"Nouvelle invitation",userId1.firstName+'vous invite',userId1);
         res.json({status:status});
         
     }else{

@@ -16,11 +16,6 @@ var relations = [{
     "userAskingId":"lGyoWsXhU0",
     "userAskedId":"b2KvTMBUGK",
     "status":"waiting"
-},
-{
-    "userAskingId":"lGyoWsXhU0",
-    "userAskedId":"1",         
-    "status":"waiting"
 }];
 
 module.exports = relations;

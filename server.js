@@ -117,7 +117,7 @@ var RproServer = function() {
         // we push searchfields routes to the router 
         // the url will be http://.../addRequest/
         // we get rest fileUpload api definiton with routes      
-        self.app.use('/fileupload',express.static(process.env.OPENSHIFT_DATA_DIR));
+        self.app.use('/fileupload', fileupload, express.static(process.env.OPENSHIFT_DATA_DIR));
         
          // catch 404 and forward to error handler
         self.app.use(function(req, res, next) {

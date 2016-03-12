@@ -22,7 +22,8 @@ var searchfields = require('./restAPI/searchFieldsRoutes');
 // we get rest add request api definition with routes 
 var addrequest = require('./restAPI/addRequestRoutes');
 
- var fileupload = require('./restAPI/fileUpload');
+// we get rest add request api definition with routes
+ var fileupload = require('./restAPI/fileUploadRoutes');
 
 /**
  *  Rpro server
@@ -116,7 +117,7 @@ var RproServer = function() {
         // we push searchfields routes to the router 
         // the url will be http://.../addRequest/
         // we get rest fileUpload api definiton with routes      
-        self.app.use('/fileupload',express.static(process.env.OPENSHIFT_DATA_DIR+'/upload/'));
+        self.app.use('/fileupload',fileupload);
         
          // catch 404 and forward to error handler
         self.app.use(function(req, res, next) {

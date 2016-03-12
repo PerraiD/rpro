@@ -115,7 +115,7 @@ var RproServer = function() {
         
         // we push searchfields routes to the router 
         // the url will be http://.../addRequest/
-        self.app.use('/fileupload',fileupload);
+        //self.app.use('/fileupload',fileupload);
         
          // catch 404 and forward to error handler
         self.app.use(function(req, res, next) {

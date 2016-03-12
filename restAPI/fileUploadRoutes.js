@@ -10,7 +10,7 @@ router.use(bodyParser.urlencoded({
 }));
 
 router.post('/upload/file',function(req,res,next){
-  res.send('status ok, error on write');
+    
  fs.writeFile(OPENSHIFT_DATA_DIR+'message.txt', 'Hello Node', function (err) {
     if(err){
         res.send(err);

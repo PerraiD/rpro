@@ -9,7 +9,7 @@ router.use(bodyParser.urlencoded({
 }));
 
 router.post('/upload/file',function(res,req,next){
-    res.send("file/"+$OPENSHIFT_DATA_DIR);
+    res.send("file/"+process.env.OPENSHIFT_DATA_DIR);
 });
 
 module.exports = router;

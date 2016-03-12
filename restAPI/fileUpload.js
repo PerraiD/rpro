@@ -9,5 +9,5 @@ router.use(bodyParser.urlencoded({
 }));
 
 router.post('/upload/file',function(res,req,next){
-    res.send(process.env.OPENSHIFT_DATA_DIR+ " " +process.env.OPENSHIFT_TMP_DIR);
+    res.send();
 });

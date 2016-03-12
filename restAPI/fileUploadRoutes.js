@@ -19,6 +19,9 @@ router.post('/upload/file',function(req,res,next){
     }
 });
    
+})
+.get('/message.txt', function(req,res,next) {
+    res.sendFile(process.env.OPENSHIFT_DATA_DIR+'message.txt'); 
 });
 
 module.exports = router;

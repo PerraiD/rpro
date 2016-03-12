@@ -23,7 +23,7 @@ var searchfields = require('./restAPI/searchFieldsRoutes');
 var addrequest = require('./restAPI/addRequestRoutes');
 
 // we get rest fileUpload api definiton with routes
-var fileupload = require('./restAPI/fileUpload');
+//var fileupload = require('./restAPI/fileUpload');
 /**
  *  Rpro server
  */

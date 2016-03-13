@@ -23,7 +23,7 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
                 if(err){
                     res.status(403).send(err);
                 }else{
-                    res.status(202).end();    
+                    res.status(200).end();    
                 }                
             });
         });
@@ -32,8 +32,9 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
         res.status(403).send('file not uploaded');
     }
 })
-.get('/message.txt', function(req,res,next) {
-    res.sendFile(process.env.OPENSHIFT_DATA_DIR+'message.txt'); 
+.get('/:filename', function(req,res,next) {
+    var filename = req.params.filename;
+    res.sendFile(process.env.OPENSHIFT_DATA_DIR+filename); 
 });
 
 module.exports = router;

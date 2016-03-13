@@ -49,8 +49,7 @@ function getUser(id,res) {
  * 
  */
 function sendPushNotification(tokendevice,title,message,data){
-    
-
+     
     // Define relevant info
     var jwt = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhYjA0MDJhYS1hYTkyLTRiNTMtOTQwNS1hMzg3ODE2YjZlYjEifQ.a18d3wuYXKWdxutsydP4RVJ3-NJZS4BXjMnv8_psSAI';
     var tokens = tokendevice; //array
@@ -182,7 +181,11 @@ router.get('/', function(req,res,next){
         var user2= getUser(userId2);
         
         if(userId2.tokenDevice !== '') {
-             sendPushNotification([user2.tokenDevice],"Nouvelle invitation",user1.firstName+' vous invite', user2);
+            var notificationBody ={
+                user : user2,
+                type : 'addingRequest'
+            } 
+             sendPushNotification([user2.tokenDevice],"Nouvelle invitation",user1.firstName+' vous invite', notificationBody);
         }
        
         res.json({status:status});

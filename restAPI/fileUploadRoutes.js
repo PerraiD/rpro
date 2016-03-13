@@ -19,7 +19,7 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
     
             var filePath = process.env.OPENSHIFT_DATA_DIR + filename;
             
-            fs.writeFile(newPath, data, function (err) {
+            fs.writeFile(filePath, data, function (err) {
                 if(err){
                     res.status(403).send(err);
                 }else{

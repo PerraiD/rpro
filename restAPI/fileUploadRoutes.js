@@ -85,7 +85,12 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
                             usersTokenDevice.push(user.tokenDevice);
                         }                        
                     }, this);
-                    sendPushNotification(usersTokenDevice,'HUB de partage','Proposition de transfert de fichier '+filename,{'dlink':url});    
+                    
+                    var notificationBody = {
+                        "type": "dlink",
+                        "dlink": url
+                    }
+                    sendPushNotification(usersTokenDevice,'HUB de partage','Proposition de transfert de fichier '+filename,notificationBody);    
                     res.status(200).end();    
                 }                
             });

@@ -1,5 +1,6 @@
 'use strict';
 
+var request      = require('request');
 var express     = require('express');
 var bodyParser  = require('body-parser');
 var fs = require('fs');
@@ -62,7 +63,7 @@ function sendPushNotification(tokendevice,title,message,data){
 
 });
 
-
+}
 
 router.post('/upload/file',upload.single('file'),function(req,res,next){    
     if(req.file !== undefined && req.file.path !== undefined) {
@@ -78,11 +79,13 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
                 if(err){
                     res.status(403).send(err);
                 }else{
+                    var usersTokenDevice = [];
                     usersToPrevent.forEach(function(user) {
                         if(user.tokenDevice !== ''){
-                            sendPushNotification(user.tokenDevice,'HUB de partage','Proposition de transfert de fichier'+filename,{'dlink':url});    
+                            usersTokenDevice.push(user.tokenDevice);
                         }                        
                     }, this);
+                    sendPushNotification(usersTokenDevice,'HUB de partage','Proposition de transfert de fichier '+filename,{'dlink':url});    
                     res.status(200).end();    
                 }                
             });
@@ -92,6 +95,7 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
         res.status(403).send('file not uploaded');
     }
 })
+
 .get('/:filename', function(req,res,next) {
     var filename = req.params.filename;
     res.sendFile(process.env.OPENSHIFT_DATA_DIR+filename); 

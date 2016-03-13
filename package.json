@@ -23,6 +23,7 @@
     "express": "*",
     "jasmine": "^2.4.1",
     "keyword-extract": "^0.1.6",
+    "multer": "^1.1.0",
     "request": "^2.69.0",
     "sha1": "^1.1.1"
   },

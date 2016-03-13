@@ -625,6 +625,22 @@ router.get('/', function(req,res,next) {
     }
     
 })
+.get('/:id/useraround/', function(req,res,next){
+    var id = req.params.id; 
+    var user = getUser(id,res);
+    var users = [];
+    
+    if(JSON.stringify(user) !== '{}') {        
+        userDbStub.forEach(function(otherUser) {          
+            if(user.place.uuid === otherUser.place.uuid  &&  user.id !== otherUser.id /*&& user.place.uuid !== ''*/) {
+                users.push(otherUser);
+            }
+        }, this);
+        res.json(users);
+    }else{
+        res.status(403).send('user error');
+    }
+})
 /**
  * function to authenticate user 
  */

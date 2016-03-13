@@ -12,7 +12,7 @@ router.use(bodyParser.urlencoded({
 }));
 
 router.post('/upload/file',upload.single('file'),function(req,res,next){    
-   res.json(req.file);
+   res.json(req.body);
    
     // if(req.file !== undefined && req.file.path !== undefined) {
         

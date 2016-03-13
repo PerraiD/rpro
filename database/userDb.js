@@ -117,7 +117,7 @@ var userDbStub = [
             uuid:"",
             associatedPlace:"Inconnu"
         },
-        "tokenDevice":""
+        "tokenDevice":"fKJ1CXRhMdI:APA91bH3DooQ3z72M5z-rEgSnx5zfHRQF5QZm9kyxQbW6x1nhdAQIXp0RularaDUyuyFkRMrxjJTgV0bAgLO4sIR2vYXKRRqz-IBoM7ZVz_Hwe3awlqpXkOnC6HjSbJFiNVpYgeunzgN"
     },
     {
         "id":"b2KvTMBUGK",

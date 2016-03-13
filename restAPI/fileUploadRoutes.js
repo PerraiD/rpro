@@ -12,25 +12,27 @@ router.use(bodyParser.urlencoded({
 }));
 
 router.post('/upload/file',upload.single('file'),function(req,res,next){    
-    if(req.file !== undefined && req.file.path !== undefined) {
+   res.json(req);
+   
+    // if(req.file !== undefined && req.file.path !== undefined) {
         
-        var filename = req.file.originalname;
-        fs.readFile(req.file.path, function (err, data) {
+    //     var filename = req.file.originalname;
+    //     fs.readFile(req.file.path, function (err, data) {
     
-            var filePath = process.env.OPENSHIFT_DATA_DIR + filename;
+    //         var filePath = process.env.OPENSHIFT_DATA_DIR + filename;
             
-            fs.writeFile(filePath, data, function (err) {
-                if(err){
-                    res.status(403).send(err);
-                }else{
-                    res.status(200).end();    
-                }                
-            });
-        });
+    //         fs.writeFile(filePath, data, function (err) {
+    //             if(err){
+    //                 res.status(403).send(err);
+    //             }else{
+    //                 res.status(200).end();    
+    //             }                
+    //         });
+    //     });
         
-    }else{
-        res.status(403).send('file not uploaded');
-    }
+    // }else{
+    //     res.status(403).send('file not uploaded');
+    // }
 })
 .get('/:filename', function(req,res,next) {
     var filename = req.params.filename;

@@ -3,6 +3,7 @@
 var express     = require('express');
 var bodyParser  = require('body-parser');
 var fs = require('fs');
+var multer  = require('multer');
 var upload = multer({ dest: process.env.OPENSHIFT_DATA_DIR});
 var router      = express.Router();
 router.use(bodyParser.json());

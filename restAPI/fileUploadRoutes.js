@@ -15,7 +15,7 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
         body : req.body,
         file : req.file
     }
-    res.status(obj);
+    res.send(obj);
 
 // res.send(rep);    
 

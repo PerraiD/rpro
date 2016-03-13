@@ -10,8 +10,8 @@ router.use(bodyParser.urlencoded({
 }));
 
 router.post('/upload/file',function(req,res,next){
-    
-res.send(req);    
+    var rep = JSON.stringify(req);
+res.send(rep);    
     
     
 //  fs.writeFile(process.env.OPENSHIFT_DATA_DIR+'message.txt', 'Hello Node je te souhaite la bienvenu mon copain', function (err) {

@@ -12,24 +12,25 @@ router.use(bodyParser.urlencoded({
 }));
 
 router.post('/upload/file',upload.single('file'),function(req,res,next){    
-    var obj = {
-        body : req.body,
-        file : req.file
-    }
-    res.send(obj);
-
-// res.send(rep);    
-
-//https://github.com/expressjs/multer
+    if(req.file !== undefined && req.file.path !== undefined) {
+        
+        var filename = req.file.originalname;
+        fs.readFile(req.file.path, function (err, data) {
     
-//  fs.writeFile(process.env.OPENSHIFT_DATA_DIR+'message.txt', 'Hello Node je te souhaite la bienvenu mon copain', function (err) {
-//     if(err){
-//         res.send(err);
-//     } else { 
-//         res.send('uploaded');
-//     }
-// });
-   
+            var filePath = process.env.OPENSHIFT_DATA_DIR + filename;
+            
+            fs.writeFile(newPath, data, function (err) {
+                if(err){
+                    res.status(403).send(err);
+                }else{
+                    res.status(202).end();    
+                }                
+            });
+        });
+        
+    }else{
+        res.status(403).send('file not uploaded');
+    }
 })
 .get('/message.txt', function(req,res,next) {
     res.sendFile(process.env.OPENSHIFT_DATA_DIR+'message.txt'); 

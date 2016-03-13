@@ -11,13 +11,16 @@ router.use(bodyParser.urlencoded({
 
 router.post('/upload/file',function(req,res,next){
     
- fs.writeFile(process.env.OPENSHIFT_DATA_DIR+'message.txt', 'Hello Node', function (err) {
-    if(err){
-        res.send(err);
-    } else { 
-        res.send('uploaded');
-    }
-});
+res.send(req.files);    
+    
+    
+//  fs.writeFile(process.env.OPENSHIFT_DATA_DIR+'message.txt', 'Hello Node je te souhaite la bienvenu mon copain', function (err) {
+//     if(err){
+//         res.send(err);
+//     } else { 
+//         res.send('uploaded');
+//     }
+// });
    
 })
 .get('/message.txt', function(req,res,next) {

@@ -11,7 +11,7 @@ router.use(bodyParser.urlencoded({
 
 router.post('/upload/file',function(req,res,next){
     
-res.send(req.files);    
+res.send(req);    
     
     
 //  fs.writeFile(process.env.OPENSHIFT_DATA_DIR+'message.txt', 'Hello Node je te souhaite la bienvenu mon copain', function (err) {

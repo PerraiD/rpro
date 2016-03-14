@@ -632,7 +632,7 @@ router.get('/', function(req,res,next) {
     
     if(JSON.stringify(user) !== '{}') {        
         userDbStub.forEach(function(otherUser) {          
-            if(user.place.uuid === otherUser.place.uuid  &&  user.id !== otherUser.id /*&& user.place.uuid !== ''*/) {
+            if(user.place.uuid === otherUser.place.uuid  &&  user.id !== otherUser.id && user.place.uuid !== '') {
                 users.push(otherUser);
             }
         }, this);

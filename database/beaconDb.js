@@ -15,7 +15,7 @@ var beaconDbStub = [
     },
     {
         idBeacon :'2f234454-cf6d-4a0f-adf2-f4911ba9ffa6',
-        associatedPlace : 'Bureau IOT',
+        associatedPlace : 'ADN ouest',
         longitude: 0.0,
         latitude : 0.0
     }

@@ -729,8 +729,10 @@ router.get('/', function(req,res,next) {
     
     if(JSON.stringify(user) !== '{}') {
         if(token !== undefined && token !== '') {
+            
             user.tokenDevice = token;
             res.send(user);
+        
         }else{
             res.status(403).send('token malformed or unexist')
         }

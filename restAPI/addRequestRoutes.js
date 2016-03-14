@@ -128,7 +128,7 @@ router.get('/', function(req,res,next){
     var addRequests = [];
     if (userId && userId !== '') {
         addRequestDb.forEach(function(request) {
-            if(request.userAskingId == userId && request.status == 'waiting') {
+            if(request.userAskingId === userId && request.status === 'waiting') {
                 addRequests.push(request);
             }   
         }, this);
@@ -147,7 +147,7 @@ router.get('/', function(req,res,next){
     var userId1 = req.params.userId1;
     var userId2 = req.params.userId2;
     
-    if(userId1 && userId1 != '' && userId2 && userId2 != '') {
+    if(userId1 && userId1 !== '' && userId2 && userId2 !== '') {
         addRequestDb.forEach(function(relation) {
             if(relation.userAskingId === userId1 && relation.userAskedId === userId2){
                status = relation.status; 

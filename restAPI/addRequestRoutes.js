@@ -182,7 +182,7 @@ router.get('/', function(req,res,next){
         
         if(userId2.tokenDevice !== '') {
             var notificationBody ={
-                user : user2,
+                user : user1,
                 type : 'addingRequest'
             } 
              sendPushNotification([user2.tokenDevice],"Nouvelle invitation",user1.firstName+' vous invite', notificationBody);

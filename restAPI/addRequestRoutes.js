@@ -143,9 +143,9 @@ router.get('/', function(req,res,next){
  * get function to get status of an add request between userId1 and userId2
  */
 .get('/status/:userId1/:userId2',function(req,res,next) {
-    var status = 'no relation';
-    var userId1 = req.params.userId1;
-    var userId2 = req.params.userId2; 
+    var status = '';
+    var userId1 = req.params.userId1.replace(/"/g,"");
+    var userId2 = req.params.userId2.replace(/"/g,""); 
     
     res.send({u1:userId1, u2: userId2});
     

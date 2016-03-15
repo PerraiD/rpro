@@ -143,9 +143,11 @@ router.get('/', function(req,res,next){
  * get function to get status of an add request between userId1 and userId2
  */
 .get('/status/:userId1/:userId2',function(req,res,next) {
-    var status = '';
+    var status = 'no relation';
     var userId1 = req.params.userId1;
-    var userId2 = req.params.userId2;
+    var userId2 = req.params.userId2; 
+    
+    res.send({u1:userId1, u2: userId2});
     
     if(userId1 && userId1 !== '' && userId2 && userId2 !== '') {
         addRequestDb.forEach(function(relation) {

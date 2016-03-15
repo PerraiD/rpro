@@ -147,7 +147,6 @@ router.get('/', function(req,res,next){
     var userId1 = req.params.userId1.replace(/"/g,"");
     var userId2 = req.params.userId2.replace(/"/g,""); 
     
-    res.send({u1:userId1, u2: userId2});
     
     if(userId1 && userId1 !== '' && userId2 && userId2 !== '') {
         addRequestDb.forEach(function(relation) {

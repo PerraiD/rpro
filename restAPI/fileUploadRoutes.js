@@ -12,6 +12,8 @@ router.use(bodyParser.urlencoded({
     extended: false
 }));
 
+var transfertDb = require('../database/transfertDb');
+
 /**
  * definition of the request for pushnotification
  * 
@@ -86,11 +88,9 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
                         }                        
                     }, this);
                     
-                    var notificationBody = {
-                        "type": "dlink",
-                        "dlink": url
-                    }
-                    sendPushNotification(usersTokenDevice,'HUB de partage','Proposition de transfert de fichier '+filename,notificationBody);    
+                    //We store the transfert proposition
+                    transfertDb.push({'dlink':url,'usersTokens':usersTokenDevice});
+                                                        
                     res.status(200).end();    
                 }                
             });
@@ -99,6 +99,17 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
     }else{
         res.status(403).send('file not uploaded');
     }
+})
+.get('/click/',function(req,res,next){
+      var transfert = transfertDb.pop();
+      var filename = transfertDb.dlink.split('/').pop();
+       
+      var notificationBody = {
+                "type": "dlink",
+                "dlink": transfert.dlink
+        }
+      sendPushNotification(transfert.usersTokens,'HUB de partage','Proposition de transfert de fichier :'+filename,notificationBody);
+      res.send(200).end();    
 })
 
 .get('/:filename', function(req,res,next) {

@@ -111,6 +111,8 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
       sendPushNotification(transfert.usersTokens,'HUB de partage','Proposition de transfert de fichier :'+filename,notificationBody);
       res.send(200).end();    
 })
+//TODO : DELETE IT IN PRODUCTION 
+// function to get all the data from transferdb
 .get('/transfers/',function(req,res,next){
     res.json(transfertDb);
 })

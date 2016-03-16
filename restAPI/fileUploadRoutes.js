@@ -100,7 +100,7 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
         res.status(403).send('file not uploaded');
     }
 })
-.get('/click/',function(req,res,next){
+.get('/allowtransfer/',function(req,res,next){
       var transfert = transfertDb.pop();
       var filename = transfertDb.dlink.split('/').pop();
        

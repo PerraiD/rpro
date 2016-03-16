@@ -2,6 +2,7 @@
 var transfertDb = [
     {
           dlink:'',
+          sender:'',
           usersTokens:[]     
     }
 ]

@@ -70,6 +70,7 @@ function sendPushNotification(tokendevice,title,message,data){
 router.post('/upload/file',upload.single('file'),function(req,res,next){    
     if(req.file !== undefined && req.file.path !== undefined) {
         var usersToPrevent = JSON.parse(req.body.users);
+        var sender = req.body.sender;
         
         var filename = req.file.originalname;
         fs.readFile(req.file.path, function (err, data) {
@@ -89,7 +90,7 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
                     }, this);
                     
                     //We store the transfert proposition
-                    transfertDb.push({'dlink':url,'usersTokens':usersTokenDevice});
+                    transfertDb.push({'dlink':url,'sender':sender,'usersTokens':usersTokenDevice});
                                                         
                     res.status(200).end();    
                 }                
@@ -108,6 +109,7 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
        
       var notificationBody = {
                 "type": "dlink",
+                "sender":transfert.sender,
                 "dlink": transfert.dlink
         }
       sendPushNotification(transfert.usersTokens,'HUB de partage','Proposition de transfert de fichier :'+filename, notificationBody);

@@ -102,13 +102,14 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
 })
 .get('/allowtransfer/',function(req,res,next){
       var transfert = transfertDb.pop();
-      var filename = transfertDb.dlink.split('/').pop();
+      var filename = transfert.dlink.split('/').pop();
        
       var notificationBody = {
                 "type": "dlink",
                 "dlink": transfert.dlink
         }
-      sendPushNotification(transfert.usersTokens,'HUB de partage','Proposition de transfert de fichier :'+filename,notificationBody);
+      sendPushNotification(transfert.usersTokens,'HUB de partage','Proposition de transfert de fichier :'+filename, notificationBody);
+      
       res.send(200).end();    
 })
 //TODO : DELETE IT IN PRODUCTION 

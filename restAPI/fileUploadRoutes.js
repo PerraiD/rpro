@@ -92,7 +92,7 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
                     //We store the transfert proposition
                     transfertDb.push({'dlink':url,'sender':sender,'usersTokens':usersTokenDevice});
                                                         
-                    res.status(200);    
+                    res.status(200).send("ok");    
                 }                
             });
         });

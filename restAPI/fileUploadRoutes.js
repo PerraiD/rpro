@@ -113,8 +113,7 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
                 "dlink": transfert.dlink
         }
         sendPushNotification(transfert.usersTokens,'HUB de partage','Proposition de transfert de fichier :'+filename, notificationBody);
-        res.json(transfert);
-        //res.send(200).end();
+        res.send(200).end();
       }else{
           res.send(403).send('no waiting download');
       }    

@@ -102,9 +102,9 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
     }
 })
 .get('/allowtransfer/',function(req,res,next){
-      if(transfertDb.length>0){
+      if(transfertDb.length > 0){
                 
-          var transfert = transfertDb.pop();
+      var transfert = transfertDb.pop();
       var filename = transfert.dlink.split('/').pop();
        
       var notificationBody = {
@@ -112,9 +112,9 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
                 "sender":transfert.sender,
                 "dlink": transfert.dlink
         }
-      sendPushNotification(transfert.usersTokens,'HUB de partage','Proposition de transfert de fichier :'+filename, notificationBody);
-      
-      res.send(200).end();
+        sendPushNotification(transfert.usersTokens,'HUB de partage','Proposition de transfert de fichier :'+filename, notificationBody);
+        res.json(transfert);
+        //res.send(200).end();
       }else{
           res.send(403).send('no waiting download');
       }    

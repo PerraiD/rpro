@@ -92,7 +92,7 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
                     //We store the transfert proposition
                     transfertDb.push({'dlink':url,'sender':sender,'usersTokens':usersTokenDevice});
                                                         
-                    res.status(200).end();    
+                    res.status(200);    
                 }                
             });
         });
@@ -103,6 +103,7 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
 })
 .get('/allowtransfer/',function(req,res,next){
       if(transfertDb.length > 0){
+          
       var transfert = transfertDb[transfertDb.length-1];      
       transfertDb = transfertDb.splice(transfertDb.length-1,1);
       var filename = transfert.dlink.split('/').pop();
@@ -114,6 +115,7 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
         }
         sendPushNotification(transfert.usersTokens,'HUB de partage','Proposition de transfert de fichier :'+filename, notificationBody);
         res.json(transfert);
+        
       }else{
           res.send(400).send('no waiting download');
       }    

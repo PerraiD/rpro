@@ -103,8 +103,8 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
 })
 .get('/allowtransfer/',function(req,res,next){
       if(transfertDb.length > 0){
-                
-      var transfert = transfertDb.pop();
+      var transfert = transfertDb[transfertDb.length-1];      
+      transfertDb = transfertDb.slice(-1);
       var filename = transfert.dlink.split('/').pop();
        
       var notificationBody = {

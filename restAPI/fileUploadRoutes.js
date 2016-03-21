@@ -108,13 +108,13 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
         
         var notifRequest = setPushNotification(transfert.usersTokens,'HUB de partage','Proposition de transfert de fichier :'+filename, notificationBody);
         // we create a request to send the push notification to google cloud message server 
-        res.json(transfert);
-        // request(notifRequest, function (err, res, body) {
-        //     if (err) {
-        //         res.status(500).send(err);
-        //     }   
-        //         res.json(transfertDb);
-        // });
+        var _this = this;
+        request(notifRequest, function (err, res, body) {
+            if (err) {
+                _this.res.status(500).send(err);
+            }   
+                _this.res.json(transfertDb);
+        });
    
       } else {
           res.status(400).send('no waiting download');

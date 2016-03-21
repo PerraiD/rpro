@@ -110,7 +110,7 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
             res.status(500).send('tokens array is empty');
         }else{
                    
-            var notifRequest = setPushNotification(transfert.usersTokens,'HUB de partage','Proposition de transfert de fichier : '+filename, notificationBody);
+            var notifRequest = setPushNotification(tokens,'HUB de partage','Proposition de transfert de fichier : '+filename, notificationBody);
             // we create a request to send the push notification to google cloud message server 
             res.json(notifRequest);
             // request(notifRequest, function (err, response, body) {

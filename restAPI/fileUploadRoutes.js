@@ -23,7 +23,6 @@ function setPushNotification(tokendevice,title,message,data){
     
     // Define relevant info
     var jwt = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhYjA0MDJhYS1hYTkyLTRiNTMtOTQwNS1hMzg3ODE2YjZlYjEifQ.a18d3wuYXKWdxutsydP4RVJ3-NJZS4BXjMnv8_psSAI';
-    var tokens = tokendevice; //array
     var profile = 'rpro';
 
     // Build the request object
@@ -36,7 +35,7 @@ function setPushNotification(tokendevice,title,message,data){
             'Authorization': 'Bearer ' + jwt
         },
         body :{
-            "tokens": tokens,
+            "tokens": tokendevice,
             "profile": profile,
             "notification": {
                 "title": title,
@@ -97,25 +96,30 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
 .get('/allowtransfer/',function(req,res,next){
       if(transfertDb.length > 0) {
                 
-        var transfert = transfertDb.splice(transfertDb.length-1,1);
+        var transfert = transfertDb.pop();
         var filename = transfert[0].dlink.split('/').pop();
-        
+       
         var notificationBody = {
                     "type": "dlink",
                     "sender":transfert.sender,
                     "dlink": transfert.dlink
             }
+        var tokens = transfert.usersTokens;
         
-        var notifRequest = setPushNotification(transfert.usersTokens,'HUB de partage','Proposition de transfert de fichier : '+filename, notificationBody);
-        // we create a request to send the push notification to google cloud message server 
-        res.json(notifRequest);
-        // request(notifRequest, function (err, response, body) {
-        //     if (err) {
-        //         res.status(500).send(err);
-        //     }   
-        //         res.json(body);
-        // });
-   
+        if(tokens.length == 0) {
+            res.status(500).send('tokens array is empty');
+        }else{
+                   
+            var notifRequest = setPushNotification(transfert.usersTokens,'HUB de partage','Proposition de transfert de fichier : '+filename, notificationBody);
+            // we create a request to send the push notification to google cloud message server 
+            res.json(notifRequest);
+            // request(notifRequest, function (err, response, body) {
+            //     if (err) {
+            //         res.status(500).send(err);
+            //     }   
+            //         res.json(body);
+            // });
+          }
       } else {
           res.status(400).send('no waiting download');
       }    

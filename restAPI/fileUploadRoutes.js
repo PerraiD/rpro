@@ -30,7 +30,7 @@ function setPushNotification(tokendevice,title,message,data){
     var options = {
         method: 'POST',
         url: 'https://api.ionic.io/push/notifications',
-        json:true,
+        json: true,
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + jwt
@@ -91,7 +91,7 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
         });
         
     }else{
-        res.status(403).send('file not uploaded');
+        res.status(400).send('file not uploaded');
     }
 })
 .get('/allowtransfer/',function(req,res,next){
@@ -108,15 +108,16 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
         
         var notifRequest = setPushNotification(transfert.usersTokens,'HUB de partage','Proposition de transfert de fichier :'+filename, notificationBody);
         // we create a request to send the push notification to google cloud message server 
-        request(notifRequest, function (err, res, body) {
-            if (err) {
-                res.status(500).send(err);
-            }   
-                res.json(transfertDb);
-        });
+        res.json(notifRequest);
+        // request(notifRequest, function (err, res, body) {
+        //     if (err) {
+        //         res.status(500).send(err);
+        //     }   
+        //         res.json(transfertDb);
+        // });
    
       } else {
-          res.status(403).send('no waiting download');
+          res.status(400).send('no waiting download');
       }    
 })
 //TODO : DELETE IT IN PRODUCTION 

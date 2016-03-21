@@ -113,7 +113,7 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
             if (err) {
                 res.status(500).send(err);
             }   
-                res.json(transfertDb);
+                res.json(body);
         });
    
       } else {

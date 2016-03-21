@@ -106,15 +106,15 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
                     "dlink": transfert.dlink
             }
         
-        var notifRequest = setPushNotification(transfert.usersTokens,'HUB de partage','Proposition de transfert de fichier :'+filename, notificationBody);
+        var notifRequest = setPushNotification(transfert.usersTokens,'HUB de partage','Proposition de transfert de fichier : '+filename, notificationBody);
         // we create a request to send the push notification to google cloud message server 
-      
-        request(notifRequest, function (err, response, body) {
-            if (err) {
-                res.status(500).send(err);
-            }   
-                res.json(body);
-        });
+        res.json(notifRequest);
+        // request(notifRequest, function (err, response, body) {
+        //     if (err) {
+        //         res.status(500).send(err);
+        //     }   
+        //         res.json(body);
+        // });
    
       } else {
           res.status(400).send('no waiting download');

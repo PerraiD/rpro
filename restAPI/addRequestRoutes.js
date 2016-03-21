@@ -105,7 +105,9 @@ router.get('/', function(req,res,next){
  * get function to get all add request  for userId
  */
 .get('/:userId', function(req,res,next) {
-    var userId = req.params.userId; 
+    
+    var userId = req.params.userId === '' ?   ''  :   req.params.userId;
+    
     var addRequests = [];
     if (userId && userId !== '') {
         addRequestDb.forEach(function(request) {
@@ -124,7 +126,8 @@ router.get('/', function(req,res,next){
  * get function to get all waiting add request for userId 
  */
 .get('/waiting/:userId', function(req,res,next) {
-    var userId = req.params.userId; 
+    
+    var userId = req.params.userId === undefined ?  '' : req.params.userId; 
     var addRequests = [];
     if (userId && userId !== '') {
         addRequestDb.forEach(function(request) {
@@ -144,8 +147,8 @@ router.get('/', function(req,res,next){
  */
 .get('/status/:userId1/:userId2',function(req,res,next) {
     var status = '';
-    var userId1 = req.params.userId1.replace(/"/g,"");
-    var userId2 = req.params.userId2.replace(/"/g,""); 
+    var userId1 = req.params.userId1 !== undefined ? req.params.userId1.replace(/"/g,"") : '' ;
+    var userId2 = req.params.userId2 !== undefined ? req.params.userId2.replace(/"/g,"") : '' ; 
     
     
     if(userId1 && userId1 !== '' && userId2 && userId2 !== '') {
@@ -232,6 +235,7 @@ router.get('/', function(req,res,next){
     }
     
 })
+
 .delete('/', function(req,res,next) {
     
     var userId1 = req.body.userId1 !== undefined ? req.body.userId1 : '' ;

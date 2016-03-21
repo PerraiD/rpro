@@ -94,10 +94,11 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
     }
 })
 .get('/allowtransfer/',function(req,res,next){
+    
       if(transfertDb.length > 0) {
                 
         var transfert = transfertDb.pop();
-        var filename = transfert[0].dlink.split('/').pop();
+        var filename = transfert.dlink.split('/').pop();
        
         var notificationBody = {
                     "type": "dlink",

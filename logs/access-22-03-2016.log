@@ -1,0 +1,12 @@
+127.0.0.1 - - [22/Mar/2016:10:01:01 +0000] "GET /use/ HTTP/1.1" 404 1347 [object Object]
+127.0.0.1 - - [22/Mar/2016:10:01:38 +0000] "GET /user/ HTTP/1.1" 200 5250 [object Object]
+127.0.0.1 - - [22/Mar/2016:10:02:16 +0000] "GET /use/ HTTP/1.1" 404 1347 [object Object]
+127.0.0.1 - - [22/Mar/2016:10:04:17 +0000] "GET /use/ HTTP/1.1" 404 1347 Not Found
+127.0.0.1 - - [22/Mar/2016:10:05:50 +0000] "GET /user/10 HTTP/1.1" 404 14 Not Found
+127.0.0.1 - - [22/Mar/2016:10:07:16 +0000] "GET /user/10 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:10:09:48 +0000] "GET /user/10 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:10:12:23 +0000] "GET /user/10 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:10:14:25 +0000] "GET /user/10 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:10:29:41 +0000] "GET /user/10 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:10:29:56 +0000] "GET /logg/22-03-2016 HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:10:31:26 +0000] "GET /logg/22-03-2016 HTTP/1.1" 200 OK

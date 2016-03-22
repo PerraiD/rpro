@@ -8,7 +8,26 @@ router.use(bodyParser.urlencoded({
     extended: false
 }));
 
-var socket = require('socket.io');
+// requirement for logging
+var morgan = require('morgan');
+var FileStreamRotator = require('file-stream-rotator');
+var logDirectory = __dirname + '/logs'
+// ensure log directory exists
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory)
+// create a rotating write stream
+var accessLogStream = FileStreamRotator.getStream({
+  date_format: 'DD-MM-YYYY',
+  filename: logDirectory + '/access-%DATE%.log',
+  frequency: 'daily',
+  verbose: false
+})
+//we add some token to have a complet log of each request
+morgan.token('errTxt', function(req, res){
+    return res.statusMessage; 
+});
+
+// logging access 
+var logg = require('./restAPI/loggRoutes');
 
 //we get rest user api definition with routes
 var user = require('./restAPI/userRoutes');
@@ -98,6 +117,9 @@ var RproServer = function() {
     self.initializeServer = function() {
         self.app = express();
         
+        // setup the logger
+        self.app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :errTxt', {stream: accessLogStream}));
+        self.app.use('/logg',logg);
         // we push user routes to the router 
         // the url will be http://.../user/
         self.app.use('/user',user); 

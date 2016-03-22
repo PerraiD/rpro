@@ -21,8 +21,10 @@
   "dependencies": {
     "body-parser": "^1.15.0",
     "express": "*",
+    "file-stream-rotator": "0.0.6",
     "jasmine": "^2.4.1",
     "keyword-extract": "^0.1.6",
+    "morgan": "^1.7.0",
     "multer": "^1.1.0",
     "request": "^2.69.0",
     "sha1": "^1.1.1"

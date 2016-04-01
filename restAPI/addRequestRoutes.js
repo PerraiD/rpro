@@ -170,8 +170,10 @@ router.get('/', function(req,res,next){
     
     if(userAskingId && userAskingId !== '' && userAskedId && userAskedId !== '') {
         addRequestDb.forEach(function(relation) {
-            if(relation.userAskingId === userAskingId && relation.userAskedId === userAskedId){
-               status = relation.status; 
+            // we ensure that if the two user can see the status 
+            if( (relation.userAskingId === userAskingId && relation.userAskedId === userAskedId)
+             || (relation.userAskingId === userAskedId && relation.userAskedId === userAskingId) ){
+                status = relation.status; 
             }
         }, this);
         

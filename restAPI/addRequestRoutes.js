@@ -247,7 +247,7 @@ router.get('/', function(req,res,next){
             sendPushNotification([userAsking.tokenDevice],"Invitation",userAsked.firstName+" "+ userAsked.lastName + "a accepté votre invitation")
             res.status(200).send();                                
         } else if (response === 'refused') {
-           addRequestDb.slice(addRequestDb.indexOf(relation),1);
+           addRequestDb.splice(addRequestDb.indexOf(relation),1);
            res.status(200).send();
         }else{
             res.status(403).send('no response sended');

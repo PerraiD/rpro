@@ -233,21 +233,25 @@ router.get('/', function(req,res,next){
         var userAsked = getUser(userAskedId);
         
         if (response === 'accepted') {
-            // we add each user in the contact list of each user 
-            userDb.forEach(function(user) {
-                if(user.id === userAskingId){
-                    
-                    user.contacts.push(userAskedId);
-                    
-                }else if(user.id === userAskedId) {
-                    
-                    user.contacts.push(userAskingId);
-                }
-            }, this);    
-          // we change de add request status 
-            relation.status= 'accepted';
-            sendPushNotification([userAsking.tokenDevice],"Invitation",userAsked.firstName+" "+ userAsked.lastName + "a accepté votre invitation")
-            res.status(200).send();                                
+            if(JSON.stringify(relation) !== '{}'){ 
+                // we add each user in the contact list of each user 
+                userDb.forEach(function(user) {
+                    if(user.id === userAskingId){
+                        
+                        user.contacts.push(userAskedId);
+                        
+                    }else if(user.id === userAskedId) {
+                        
+                        user.contacts.push(userAskingId);
+                    }
+                }, this);    
+            // we change de add request status 
+                relation.status= 'accepted';
+                sendPushNotification([userAsking.tokenDevice],"Invitation",userAsked.firstName+" "+ userAsked.lastName + "a accepté votre invitation")
+                res.status(200).send();   
+            }else{
+                res.status(403).send('addrequest not exist');
+            }                             
         } else if (response === 'refused') {
            addRequestDb.splice(addRequestDb.indexOf(relation),1);
            res.status(200).send();

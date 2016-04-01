@@ -5,7 +5,7 @@
 var relations = [{
        userAskingId :'',
        userAskedId :'',
-       status: '' // values : [waiting,accepted,refued] 
+       status: '' // values : [waiting,accepted] a refused == deletion of the addRequest 
 }];
 
 module.exports = relations;

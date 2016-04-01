@@ -45,6 +45,23 @@ function getUser(id,res) {
 }
 
 /**
+ * utility fonction
+ * get add request for the userAsking and userAsked
+ */
+
+function getAddRequestFor(userAsking, userAsked) {
+    var addRequest = {};
+    addRequestDb.forEach(function(relation) {
+        if(relation.userAskingId === userAsking && relation.userAskedId === userAsked){
+            addRequest = relation; 
+        }
+    }, this);
+    
+    return addRequest;
+}
+
+
+/**
  * definition of the request for pushnotification
  * 
  */
@@ -189,7 +206,7 @@ router.get('/', function(req,res,next){
                 user : user1,
                 type : 'addingRequest'
             } 
-             sendPushNotification([user2.tokenDevice],"Nouvelle invitation",user1.firstName+' vous invite', notificationBody);
+             sendPushNotification([user2.tokenDevice],"Nouvelle invitation",user1.firstName +" "+user1.lastName +' vous invite', notificationBody);
         }
        
         res.json({status:status});
@@ -204,14 +221,17 @@ router.get('/', function(req,res,next){
  */
 .post('/response/', function(req,res,next) {
     
-    var addRequestResp  = req.body.addRequestResp  !== undefined ? req.body.addRequestResp : '';
+    var reponse  = req.body.reponse  !== undefined ? req.body.reponse : '';
     var userId1 = req.body.userId1 !== undefined ? req.body.userId1 : '' ;
     var userId2 = req.body.userId2 !== undefined ? req.body.userId2 : '' ;
     
-    if( userId1 !== ''  && userId2 !== '' && addRequestResp !== '') {
+    if( userId1 !== ''  && userId2 !== '' && reponse !== '') {
+        var relation= getAddRequestFor(userId1, userId2);
+        var userAsking = getUser(userId1);
+        var userAsked = getUser(userId2);
         
-        if (addRequestResp === 'accepted') {
-            // we add each user in the contact list of each user
+        if (reponse === 'accepted') {
+            // we add each user in the contact list of each user 
             userDb.forEach(function(user) {
                 if(user.id === userId1){
                     
@@ -222,18 +242,20 @@ router.get('/', function(req,res,next){
                     user.contacts.push(userId1)
                 }
             }, this);    
-            //TODO DELETE ask request FROM THE DATABASE;
-            
-        } else if (addRequestResp === 'refused') {
-            
+          // we change de add request status 
+            relation.status= 'accepted';
+            sendPushNotification([userAsking.tokenDevice],"Invitation",userAsked.firstName+" "+ userAsked.lastName + "a accepté votre invitation")
+            res.status(200).send();                                
+        } else if (reponse === 'refused') {
+           addRequestDb.slice(addRequestDb.indexOf(relation),1);
+           res.status(200).send();
         }else{
             res.status(403).send('no response sended');
         }        
            
     }else{
         res.status(403).send('error userIds malformed');
-    }
-    
+    }  
 })
 
 .delete('/', function(req,res,next) {

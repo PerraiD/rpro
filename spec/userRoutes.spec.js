@@ -536,3 +536,68 @@ describe('delete /user/:id/contact/:contactId', function() {
         .end(done);
     });     
 });
+
+
+describe('GET /by/:value', function() {
+    
+    it('respond with "field values malformed" if value is not a jsonformat like a number', function(done){
+       
+        rest.get('/user/by/1') 
+        .send()
+        .expect(function(res) {
+            expect(res.status).toBe(403);       
+            expect(res.error.text).toBe("field values malformed");
+        })   
+        .end(done);
+        
+    });
+    
+    it('respond with "field values malformed" if value is  jsonformat but empty', function(done){
+       
+        rest.get('/user/by/1') 
+        .send()
+        .expect(function(res) {
+            expect(res.status).toBe(403);       
+            expect(res.error.text).toBe("field values malformed");
+        })   
+        .end(done);
+        
+    });
+    
+     it('respond with all users if values arn\'t rigth spelling', function(done){
+       
+        rest.get('/user/by/{"industy":""}') // industy instead of industry
+        .send()
+        .expect(function(res) {
+            expect(res.status).toBe(200);
+            expect(res.body.length).toBeGreaterThan(0);       
+        })   
+        .end(done);
+        
+    });
+    
+     it('respond with all users array if fieldnames are rigth spelled but empty value', function(done){
+       
+        rest.get('/user/by/{"industry":""}') 
+        .send()
+        .expect(function(res) {
+            expect(res.status).toBe(200);
+             expect(res.body.length).toBeGreaterThan(0);       
+        })   
+        .end(done);
+        
+    });
+    
+    it('respond with empty users array if values are rigth spelled but not match with users', function(done){
+    
+        rest.get('/user/by/{"industry":"de"}') 
+        .send()
+        .expect(function(res) {
+            expect(res.status).toBe(200);
+            expect(res.body).toEqual([]);       
+        })   
+        .end(done);
+    
+    });
+    
+});

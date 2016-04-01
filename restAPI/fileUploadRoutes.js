@@ -59,7 +59,7 @@ function setPushNotification(tokendevice,title,message,data){
 }
 
 router.post('/upload/file',upload.single('file'),function(req,res,next){
-    // console.log(req);
+    
     if(req.file !== undefined && req.file.path !== undefined) {
         var usersToPrevent = JSON.parse(req.body.users);
         var sender = req.body.sender;
@@ -132,7 +132,7 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
 
 .get('/:filename', function(req,res,next) {
     var filename = req.params.filename;
-    res.sendFile(process.env.OPENSHIFT_DATA_DIR+filename); 
+    res.sendFile(dest+filename); 
 });
 
 module.exports = router;

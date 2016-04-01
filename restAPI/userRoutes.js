@@ -539,13 +539,14 @@ router.get('/', function(req,res,next) {
             var isMatching = true; // when a criteria isn't repected the user doesn't match
             
             for (var criteria in fieldvalues) {
-  
+                
                 if(fieldvalues[criteria] !== '') {
        
                     switch (criteria) {
                         
                         case 'industry':
-                            if(user.industry !== fieldvalues[criteria]) {
+                          
+                            if(user.industry !== fieldvalues[criteria]) {                              
                                 isMatching = false;
                             }
                             break;
@@ -602,19 +603,15 @@ router.get('/', function(req,res,next) {
                 userSearched.push(user);
             }  
        }, this);
-    //    // for the flname we take the exact user otherwise we push the list 
-    //    if (fieldvalues['flname'] !== '') {
-    //        if ( JSON.stringify(exactUser) !== '{}' ) {
-    //           userSearched.push(exactUser); 
-    //        }else{
-    //           userSearched = tmpUsersMatching;
-    //        }
-    //    }
+
        res.json(userSearched);
    } else {
        res.status(403).send('field values malformed');
    }
-}) 
+})
+/**
+ *  function that get user token device from its id
+ */ 
 .get('/:id/tokendevice', function(req,res,next){
     var id = req.params.id;
   
@@ -625,6 +622,9 @@ router.get('/', function(req,res,next) {
     }
     
 })
+/**
+ *  function that retrieve users next to user id
+ */
 .get('/:id/useraround/', function(req,res,next){
     var id = req.params.id; 
     var user = getUser(id,res);

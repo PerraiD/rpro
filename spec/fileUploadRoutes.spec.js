@@ -7,7 +7,7 @@ var transfertDb = require('../database/transfertDb');
 var transfertDbStub = [{
    'dlink':"https://rpro-epic2.rhcloud.com/fileupload/fileStub.txt",
    'sender' : 'john',
-   'usersTokens' : []
+   'usersTokens' : ['fKJ1CXRhMdI:APA91bH3DooQ3z72M5z-rEgSnx5zfHRQF5QZm9kyxQbW6x1nhdAQIXp0RularaDUyuyFkRMrxjJTgV0bAgLO4sIR2vYXKRRqz-IBoM7ZVz_Hwe3awlqpXkOnC6HjSbJFiNVpYgeunzgN']
 }] 
 
 describe('POST /upload/file', function() {
@@ -15,7 +15,7 @@ describe('POST /upload/file', function() {
    it('Should return ok, write the document and create entry in transfertDb', function(done) {      
 
            rest.post('/fileupload/upload/file')
-            .field('users', '[]')
+            .field('users', '[{"tokenDevice" : "fKJ1CXRhMdI:APA91bH3DooQ3z72M5z-rEgSnx5zfHRQF5QZm9kyxQbW6x1nhdAQIXp0RularaDUyuyFkRMrxjJTgV0bAgLO4sIR2vYXKRRqz-IBoM7ZVz_Hwe3awlqpXkOnC6HjSbJFiNVpYgeunzgN"}]')
             .field('sender', 'john')           
             .attach('file', __dirname+'/fileStub.txt', 'fileStub.txt')            
             .expect(function(res) {
@@ -59,15 +59,15 @@ describe('GET /transfers', function() {
 
 });
 
-describe('GET /allowtransfer', function() {
+describe('POST /allowtransfer', function() {
     
     
     it('Should return 200 with notification push to all devices involved in', function(done) {      
 
-           rest.get('/fileupload/allowtransfer')       
+           rest.post('/fileupload/allowtransfer')       
             .send()        
             .expect(function(res) {
-                console.log(res.body);             
+                                   
                 expect(res.status).toBe(200);                                                 
             })
             .end(done); 
@@ -76,7 +76,7 @@ describe('GET /allowtransfer', function() {
     
      it('Should return 403 "no waiting download" if there is no waiting file', function(done) {      
 
-           rest.get('/fileupload/allowtransfer')       
+           rest.post('/fileupload/allowtransfer')       
             .send()        
             .expect(function(res) {
                 expect(res.error.text).toBe('no waiting download');             

@@ -10,3 +10,1039 @@
 127.0.0.1 - - [22/Mar/2016:10:29:41 +0000] "GET /user/10 HTTP/1.1" 404 Not Found
 127.0.0.1 - - [22/Mar/2016:10:29:56 +0000] "GET /logg/22-03-2016 HTTP/1.1" 500 Internal Server Error
 127.0.0.1 - - [22/Mar/2016:10:31:26 +0000] "GET /logg/22-03-2016 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "PUT /addrequest/adding HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "GET /addrequest/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "GET /addrequest/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "GET /addrequest/status/1/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "GET /addrequest/status//2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "GET /addrequest/waiting/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "GET /addrequest/waiting/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "GET /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "GET /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "GET /beacon/13 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "GET /beacon/a123/place HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "GET /beacon/13/place HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "POST /beacon/13/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "POST /beacon/%27%27/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "PUT /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "PUT /beacon/ HTTP/1.1" 503 Service Unavailable
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "DELETE /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "DELETE /beacon/a123 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "DELETE /beacon/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "POST /fileupload/upload/file HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "POST /fileupload/upload/file HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "GET /fileupload/transfers HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "GET /fileupload/allowtransfer HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "GET /fileupload/allowtransfer HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "GET /searchfields/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "GET /searchfields/supply HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:07 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "PUT /user/ HTTP/1.1" 504 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "PUT /user/ HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "POST /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "POST /user/234 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "POST /toto/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "POST /user/19/pass HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "GET /user HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "GET /user/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "GET /user/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "GET /user/dazedazezea HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "GET /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "GET /user/1/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "GET /user/2/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "GET /user/3/contacts/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "GET /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "GET /user/3/contact/2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "GET /user/1/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "GET /user/5/suggest HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "GET /user/1/suggest HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "POST /user/authenticate HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "DELETE /user/%27%27/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "DELETE /user/2/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "DELETE /user/%27%27/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:33:08 +0000] "GET /by/1 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "PUT /addrequest/adding HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "GET /addrequest/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "GET /addrequest/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "GET /addrequest/status/1/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "GET /addrequest/status//2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "GET /addrequest/waiting/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "GET /addrequest/waiting/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "GET /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "GET /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "GET /beacon/13 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "GET /beacon/a123/place HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "GET /beacon/13/place HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "POST /beacon/13/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "POST /beacon/%27%27/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "PUT /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "PUT /beacon/ HTTP/1.1" 503 Service Unavailable
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "DELETE /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "DELETE /beacon/a123 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "DELETE /beacon/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "POST /fileupload/upload/file HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "POST /fileupload/upload/file HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "GET /fileupload/transfers HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "GET /fileupload/allowtransfer HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "GET /fileupload/allowtransfer HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "GET /searchfields/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "GET /searchfields/supply HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "PUT /user/ HTTP/1.1" 504 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "PUT /user/ HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "POST /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "POST /user/234 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "POST /toto/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:26 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "POST /user/19/pass HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "GET /user HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "GET /user/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "GET /user/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "GET /user/dazedazezea HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "GET /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "GET /user/1/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "GET /user/2/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "GET /user/3/contacts/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "GET /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "GET /user/3/contact/2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "GET /user/1/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "GET /user/5/suggest HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "GET /user/1/suggest HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "POST /user/authenticate HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "DELETE /user/%27%27/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "DELETE /user/2/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "DELETE /user/%27%27/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:37:27 +0000] "GET /by/1 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "PUT /addrequest/adding HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "GET /addrequest/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "GET /addrequest/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "GET /addrequest/status/1/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "GET /addrequest/status//2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "GET /addrequest/waiting/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "GET /addrequest/waiting/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "GET /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "GET /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "GET /beacon/13 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "GET /beacon/a123/place HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "GET /beacon/13/place HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "POST /beacon/13/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "POST /beacon/%27%27/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "PUT /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "PUT /beacon/ HTTP/1.1" 503 Service Unavailable
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "DELETE /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "DELETE /beacon/a123 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "DELETE /beacon/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "POST /fileupload/upload/file HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "POST /fileupload/upload/file HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "GET /fileupload/transfers HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "GET /fileupload/allowtransfer HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "GET /fileupload/allowtransfer HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "GET /searchfields/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "GET /searchfields/supply HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:15 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "PUT /user/ HTTP/1.1" 504 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "PUT /user/ HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "POST /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "POST /user/234 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "POST /toto/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "POST /user/19/pass HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "GET /user HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "GET /user/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "GET /user/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "GET /user/dazedazezea HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "GET /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "GET /user/1/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "GET /user/2/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "GET /user/3/contacts/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "GET /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "GET /user/3/contact/2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "GET /user/1/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "GET /user/5/suggest HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "GET /user/1/suggest HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "POST /user/authenticate HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "DELETE /user/%27%27/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "DELETE /user/2/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "DELETE /user/%27%27/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:38:16 +0000] "GET /user/by/1 HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "PUT /addrequest/adding HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /addrequest/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /addrequest/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /addrequest/status/1/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /addrequest/status//2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /addrequest/waiting/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /addrequest/waiting/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /beacon/13 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /beacon/a123/place HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /beacon/13/place HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /beacon/13/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /beacon/%27%27/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "PUT /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "PUT /beacon/ HTTP/1.1" 503 Service Unavailable
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "DELETE /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "DELETE /beacon/a123 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "DELETE /beacon/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /fileupload/upload/file HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /fileupload/upload/file HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /fileupload/transfers HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /fileupload/allowtransfer HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /fileupload/allowtransfer HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /searchfields/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /searchfields/supply HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "PUT /user/ HTTP/1.1" 504 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "PUT /user/ HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /user/234 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /toto/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /user/19/pass HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /user HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /user/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /user/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /user/dazedazezea HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /user/1/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /user/2/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /user/3/contacts/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /user/3/contact/2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /user/1/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /user/5/suggest HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "GET /user/1/suggest HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /user/authenticate HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "DELETE /user/%27%27/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:24 +0000] "DELETE /user/2/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:25 +0000] "DELETE /user/%27%27/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:40:25 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:25 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:40:25 +0000] "GET /user/by/1 HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "PUT /addrequest/adding HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /addrequest/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /addrequest/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /addrequest/status/1/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /addrequest/status//2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /addrequest/waiting/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /addrequest/waiting/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /beacon/13 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /beacon/a123/place HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /beacon/13/place HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /beacon/13/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /beacon/%27%27/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "PUT /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "PUT /beacon/ HTTP/1.1" 503 Service Unavailable
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "DELETE /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "DELETE /beacon/a123 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "DELETE /beacon/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /fileupload/upload/file HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /fileupload/upload/file HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /fileupload/transfers HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /fileupload/allowtransfer HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /fileupload/allowtransfer HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /searchfields/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /searchfields/supply HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "PUT /user/ HTTP/1.1" 504 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "PUT /user/ HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /user/234 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /toto/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /user/19/pass HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /user HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /user/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /user/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /user/dazedazezea HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /user/1/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /user/2/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /user/3/contacts/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /user/3/contact/2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /user/1/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /user/5/suggest HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "GET /user/1/suggest HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /user/authenticate HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "DELETE /user/%27%27/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:54 +0000] "DELETE /user/2/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:55 +0000] "DELETE /user/%27%27/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:41:55 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:55 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:41:55 +0000] "GET /user/by/1 HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "PUT /addrequest/adding HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "GET /addrequest/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "GET /addrequest/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "GET /addrequest/status/1/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "GET /addrequest/status//2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "GET /addrequest/waiting/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "GET /addrequest/waiting/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "GET /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "GET /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "GET /beacon/13 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "GET /beacon/a123/place HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "GET /beacon/13/place HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "POST /beacon/13/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "POST /beacon/%27%27/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "PUT /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "PUT /beacon/ HTTP/1.1" 503 Service Unavailable
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "DELETE /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "DELETE /beacon/a123 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:56 +0000] "DELETE /beacon/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /fileupload/upload/file HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /fileupload/upload/file HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "GET /fileupload/transfers HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /fileupload/allowtransfer HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /fileupload/allowtransfer HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "GET /searchfields/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "GET /searchfields/supply HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "PUT /user/ HTTP/1.1" 504 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "PUT /user/ HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /user/234 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /toto/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /user/19/pass HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "GET /user HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "GET /user/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "GET /user/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "GET /user/dazedazezea HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "GET /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "GET /user/1/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "GET /user/2/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "GET /user/3/contacts/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "GET /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "GET /user/3/contact/2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "GET /user/1/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "GET /user/5/suggest HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "GET /user/1/suggest HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /user/authenticate HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "DELETE /user/%27%27/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "DELETE /user/2/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "DELETE /user/%27%27/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:42:57 +0000] "GET /user/by/1 HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:46:47 +0000] "PUT /addrequest/adding HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:47 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:46:47 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:46:47 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:46:47 +0000] "GET /addrequest/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:47 +0000] "GET /addrequest/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:47 +0000] "GET /addrequest/status/1/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:47 +0000] "GET /addrequest/status//2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:47 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:47 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:47 +0000] "GET /addrequest/waiting/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /addrequest/waiting/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /beacon/13 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /beacon/a123/place HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /beacon/13/place HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /beacon/13/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /beacon/%27%27/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "PUT /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "PUT /beacon/ HTTP/1.1" 503 Service Unavailable
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "DELETE /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "DELETE /beacon/a123 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "DELETE /beacon/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /fileupload/upload/file HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /fileupload/upload/file HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /fileupload/transfers HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /fileupload/allowtransfer HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /fileupload/allowtransfer HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /searchfields/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /searchfields/supply HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "PUT /user/ HTTP/1.1" 504 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "PUT /user/ HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /user/234 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /toto/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /user/19/pass HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /user HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /user/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /user/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /user/dazedazezea HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /user/1/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /user/2/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /user/3/contacts/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /user/3/contact/2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /user/1/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /user/5/suggest HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /user/1/suggest HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /user/authenticate HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "DELETE /user/%27%27/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "DELETE /user/2/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "DELETE /user/%27%27/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:46:48 +0000] "GET /user/by/1 HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:49:08 +0000] "PUT /addrequest/adding HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:08 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:49:08 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:49:08 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:49:08 +0000] "GET /addrequest/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:08 +0000] "GET /addrequest/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:08 +0000] "GET /addrequest/status/1/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:08 +0000] "GET /addrequest/status//2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:08 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:08 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:08 +0000] "GET /addrequest/waiting/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:08 +0000] "GET /addrequest/waiting/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:08 +0000] "GET /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:08 +0000] "GET /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:08 +0000] "GET /beacon/13 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:08 +0000] "GET /beacon/a123/place HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:08 +0000] "GET /beacon/13/place HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /beacon/13/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /beacon/%27%27/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "PUT /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "PUT /beacon/ HTTP/1.1" 503 Service Unavailable
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "DELETE /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "DELETE /beacon/a123 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "DELETE /beacon/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /fileupload/upload/file HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /fileupload/upload/file HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "GET /fileupload/transfers HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /fileupload/allowtransfer HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /fileupload/allowtransfer HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "GET /searchfields/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "GET /searchfields/supply HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "PUT /user/ HTTP/1.1" 504 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "PUT /user/ HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /user/234 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /toto/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /user/19/pass HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "GET /user HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "GET /user/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "GET /user/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "GET /user/dazedazezea HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "GET /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "GET /user/1/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "GET /user/2/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "GET /user/3/contacts/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "GET /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "GET /user/3/contact/2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "GET /user/1/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "GET /user/5/suggest HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "GET /user/1/suggest HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /user/authenticate HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "DELETE /user/%27%27/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "DELETE /user/2/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "DELETE /user/%27%27/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:49:09 +0000] "GET /user/by/1 HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "PUT /addrequest/adding HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /addrequest/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /addrequest/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /addrequest/status/1/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /addrequest/status//2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /addrequest/waiting/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /addrequest/waiting/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /beacon/13 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /beacon/a123/place HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /beacon/13/place HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /beacon/13/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /beacon/%27%27/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "PUT /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "PUT /beacon/ HTTP/1.1" 503 Service Unavailable
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "DELETE /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "DELETE /beacon/a123 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "DELETE /beacon/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /fileupload/upload/file HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /fileupload/upload/file HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /fileupload/transfers HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /fileupload/allowtransfer HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /fileupload/allowtransfer HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /searchfields/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /searchfields/supply HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "PUT /user/ HTTP/1.1" 504 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "PUT /user/ HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /user/234 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /toto/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /user/19/pass HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /user HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /user/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /user/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /user/dazedazezea HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /user/1/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /user/2/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /user/3/contacts/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /user/3/contact/2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /user/1/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /user/5/suggest HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /user/1/suggest HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /user/authenticate HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "DELETE /user/%27%27/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "DELETE /user/2/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "DELETE /user/%27%27/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:51:40 +0000] "GET /user/by/1 HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "PUT /addrequest/adding HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "GET /addrequest/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "GET /addrequest/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "GET /addrequest/status/1/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "GET /addrequest/status//2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "GET /addrequest/waiting/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "GET /addrequest/waiting/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "GET /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "GET /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "GET /beacon/13 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "GET /beacon/a123/place HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "GET /beacon/13/place HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "POST /beacon/13/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "POST /beacon/%27%27/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "PUT /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "PUT /beacon/ HTTP/1.1" 503 Service Unavailable
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "DELETE /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "DELETE /beacon/a123 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "DELETE /beacon/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "POST /fileupload/upload/file HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:14:52:52 +0000] "POST /fileupload/upload/file HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "GET /fileupload/transfers HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "POST /fileupload/allowtransfer HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "POST /fileupload/allowtransfer HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "GET /searchfields/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "GET /searchfields/supply HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "PUT /user/ HTTP/1.1" 504 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "PUT /user/ HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "POST /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "POST /user/234 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "POST /toto/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "POST /user/19/pass HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "GET /user HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "GET /user/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "GET /user/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "GET /user/dazedazezea HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "GET /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "GET /user/1/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "GET /user/2/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "GET /user/3/contacts/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "GET /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "GET /user/3/contact/2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "GET /user/1/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "GET /user/5/suggest HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "GET /user/1/suggest HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "POST /user/authenticate HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "DELETE /user/%27%27/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "DELETE /user/2/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "DELETE /user/%27%27/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:52:53 +0000] "GET /user/by/1 HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "PUT /addrequest/adding HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /addrequest/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /addrequest/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /addrequest/status/1/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /addrequest/status//2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /addrequest/waiting/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /addrequest/waiting/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /beacon/13 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /beacon/a123/place HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /beacon/13/place HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /beacon/13/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /beacon/%27%27/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "PUT /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "PUT /beacon/ HTTP/1.1" 503 Service Unavailable
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "DELETE /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "DELETE /beacon/a123 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "DELETE /beacon/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /fileupload/upload/file HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /fileupload/upload/file HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /fileupload/transfers HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /fileupload/allowtransfer HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /fileupload/allowtransfer HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /searchfields/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /searchfields/supply HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "PUT /user/ HTTP/1.1" 504 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "PUT /user/ HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /user/234 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /toto/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /user/19/pass HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /user HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /user/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /user/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /user/dazedazezea HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:38 +0000] "GET /user/1/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "GET /user/2/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "GET /user/3/contacts/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "GET /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "GET /user/3/contact/2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "GET /user/1/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "GET /user/5/suggest HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "GET /user/1/suggest HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "POST /user/authenticate HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "DELETE /user/%27%27/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "DELETE /user/2/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "DELETE /user/%27%27/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:53:39 +0000] "GET /user/by/1 HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "PUT /addrequest/adding HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "GET /addrequest/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "GET /addrequest/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "GET /addrequest/status/1/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "GET /addrequest/status//2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "GET /addrequest/waiting/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "GET /addrequest/waiting/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "GET /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "GET /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "GET /beacon/13 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "GET /beacon/a123/place HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "GET /beacon/13/place HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "POST /beacon/13/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "POST /beacon/%27%27/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "PUT /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "PUT /beacon/ HTTP/1.1" 503 Service Unavailable
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "DELETE /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "DELETE /beacon/a123 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "DELETE /beacon/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "POST /fileupload/upload/file HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "POST /fileupload/upload/file HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "GET /fileupload/transfers HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "POST /fileupload/allowtransfer HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "POST /fileupload/allowtransfer HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "GET /searchfields/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "GET /searchfields/supply HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "PUT /user/ HTTP/1.1" 504 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "PUT /user/ HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "POST /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "POST /user/234 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "POST /toto/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "POST /user/19/pass HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:25 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "GET /user HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "GET /user/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "GET /user/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "GET /user/dazedazezea HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "GET /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "GET /user/1/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "GET /user/2/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "GET /user/3/contacts/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "GET /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "GET /user/3/contact/2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "GET /user/1/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "GET /user/5/suggest HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "GET /user/1/suggest HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "POST /user/authenticate HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "DELETE /user/%27%27/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "DELETE /user/2/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "DELETE /user/%27%27/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:26 +0000] "GET /user/by/1 HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "PUT /addrequest/adding HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "GET /addrequest/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "GET /addrequest/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "GET /addrequest/status/1/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "GET /addrequest/status//2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "GET /addrequest/waiting/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "GET /addrequest/waiting/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "GET /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "GET /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "GET /beacon/13 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "GET /beacon/a123/place HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "GET /beacon/13/place HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "POST /beacon/13/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "POST /beacon/%27%27/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "PUT /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "PUT /beacon/ HTTP/1.1" 503 Service Unavailable
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "DELETE /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "DELETE /beacon/a123 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "DELETE /beacon/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:57 +0000] "POST /fileupload/upload/file HTTP/1.1" 500 Internal Server Error
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /fileupload/upload/file HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "GET /fileupload/transfers HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /fileupload/allowtransfer HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /fileupload/allowtransfer HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "GET /searchfields/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "GET /searchfields/supply HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "PUT /user/ HTTP/1.1" 504 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "PUT /user/ HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /user/234 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /toto/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /user/19/pass HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "GET /user HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "GET /user/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "GET /user/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "GET /user/dazedazezea HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "GET /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "GET /user/1/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "GET /user/2/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "GET /user/3/contacts/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "GET /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "GET /user/3/contact/2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "GET /user/1/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "GET /user/5/suggest HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "GET /user/1/suggest HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /user/authenticate HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "DELETE /user/%27%27/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "DELETE /user/2/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "DELETE /user/%27%27/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:54:58 +0000] "GET /user/by/1 HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:57:29 +0000] "PUT /addrequest/adding HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:29 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:57:29 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:57:29 +0000] "PUT /addrequest/adding HTTP/1.1" 403 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:57:29 +0000] "GET /addrequest/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:29 +0000] "GET /addrequest/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:29 +0000] "GET /addrequest/status/1/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:29 +0000] "GET /addrequest/status//2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:29 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:29 +0000] "GET /addrequest/status/1/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:29 +0000] "GET /addrequest/waiting/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:29 +0000] "GET /addrequest/waiting/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:29 +0000] "GET /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:29 +0000] "GET /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:29 +0000] "GET /beacon/13 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "GET /beacon/a123/place HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "GET /beacon/13/place HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /beacon/b345 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /beacon/13/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /beacon/%27%27/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "PUT /beacon/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "PUT /beacon/ HTTP/1.1" 503 Service Unavailable
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "DELETE /beacon/a123 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "DELETE /beacon/a123 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "DELETE /beacon/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /fileupload/upload/file HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /fileupload/upload/file HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "GET /fileupload/transfers HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /fileupload/allowtransfer HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /fileupload/allowtransfer HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "GET /searchfields/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "GET /searchfields/supply HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "PUT /user/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "PUT /user/ HTTP/1.1" 504 Forbidden
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "PUT /user/ HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /user/234 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /toto/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /user/19/pass HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /user/1ST3xUcP1E/pass HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:57:30 +0000] "POST /user/1ST3xUcP1E/contact HTTP/1.1" 400 Bad Request
+127.0.0.1 - - [22/Mar/2016:14:57:31 +0000] "GET /user HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:31 +0000] "GET /user/1 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:31 +0000] "GET /user/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:31 +0000] "GET /user/dazedazezea HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:31 +0000] "GET /user/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:31 +0000] "GET /user/1/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:31 +0000] "GET /user/2/contacts/ HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:31 +0000] "GET /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:31 +0000] "GET /user/3/contact/2 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:31 +0000] "GET /user/1/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:31 +0000] "GET /user/5/suggest HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:31 +0000] "GET /user/3/contacts/ HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:31 +0000] "GET /user/1/suggest HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:31 +0000] "POST /user/authenticate HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:31 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:57:31 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:57:31 +0000] "POST /user/authenticate HTTP/1.1" 401 Unauthorized
+127.0.0.1 - - [22/Mar/2016:14:57:32 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:32 +0000] "DELETE /user/1ST3xUcP1E HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:32 +0000] "DELETE /user/%27%27/contact/3 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:32 +0000] "DELETE /user/2/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:32 +0000] "DELETE /user/%27%27/contact/%27%27 HTTP/1.1" 404 Not Found
+127.0.0.1 - - [22/Mar/2016:14:57:32 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:32 +0000] "DELETE /user/1/contact/2 HTTP/1.1" 200 OK
+127.0.0.1 - - [22/Mar/2016:14:57:32 +0000] "GET /user/by/1 HTTP/1.1" 403 Forbidden

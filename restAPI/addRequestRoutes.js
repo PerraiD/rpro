@@ -221,7 +221,7 @@ router.get('/', function(req,res,next){
  */
 .post('/response/', function(req,res,next) {
     
-    var response  = req.body.reponse  !== undefined ? req.body.response : '';
+    var response  = req.body.response  !== undefined ? req.body.response : '';
     var userId1 = req.body.userId1 !== undefined ? req.body.userId1 : '' ;
     var userId2 = req.body.userId2 !== undefined ? req.body.userId2 : '' ;
     

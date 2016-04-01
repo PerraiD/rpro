@@ -162,15 +162,15 @@ router.get('/', function(req,res,next){
 /**
  * get function to get status of an add request between userId1 and userId2
  */
-.get('/status/:userId1/:userId2',function(req,res,next) {
+.get('/status/:userAskingId/:userAskedId',function(req,res,next) {
     var status = '';
-    var userId1 = req.params.userId1 !== undefined ? req.params.userId1.replace(/"/g,"") : '' ;
-    var userId2 = req.params.userId2 !== undefined ? req.params.userId2.replace(/"/g,"") : '' ; 
+    var userAskingId = req.params.userAskingId !== undefined ? req.params.userAskingId.replace(/"/g,"") : '' ;
+    var userAskedId = req.params.userAskedId !== undefined ? req.params.userAskedId.replace(/"/g,"") : '' ; 
     
     
-    if(userId1 && userId1 !== '' && userId2 && userId2 !== '') {
+    if(userAskingId && userAskingId !== '' && userAskedId && userAskedId !== '') {
         addRequestDb.forEach(function(relation) {
-            if(relation.userAskingId === userId1 && relation.userAskedId === userId2){
+            if(relation.userAskingId === userAskingId && relation.userAskedId === userAskedId){
                status = relation.status; 
             }
         }, this);
@@ -188,25 +188,25 @@ router.get('/', function(req,res,next){
 .put('/adding/', function(req,res,next) {
     
     var status  = 'waiting';
-    var userId1 = req.body.userId1 !== undefined ? req.body.userId1 : '' ;
-    var userId2 = req.body.userId2 !== undefined ? req.body.userId2 : '' ;
+    var userAskingId = req.body.userAskingId !== undefined ? req.body.userAskingId : '' ;
+    var userAskedId = req.body.userAskedId !== undefined ? req.body.userAskedId : '' ;
     
-    if(userId1 && userId1 !== '' && userId2 && userId2 !== '') {
+    if(userAskingId && userAskingId !== '' && userAskedId && userAskedId !== '') {
         
         //we push the new askRequest
-        addRequestDb.push({userAskingId:userId1, userAskedId:userId2, status: 'waiting'});
+        addRequestDb.push({userAskingId:userAskingId, userAskedId:userAskedId, status: 'waiting'});
         
         
         // we create the curl request to prevent user. 
-        var user1= getUser(userId1);
-        var user2= getUser(userId2);
+        var userAsking= getUser(userAskingId);
+        var userAsked= getUser(userAskedId);
         
-        if(userId2.tokenDevice !== '') {
+        if(userAsked.tokenDevice !== '') {
             var notificationBody ={
-                user : user1,
+                user : userAsking,
                 type : 'addingRequest'
             } 
-             sendPushNotification([user2.tokenDevice],"Nouvelle invitation",user1.firstName +" "+user1.lastName +' vous invite', notificationBody);
+             sendPushNotification([userAsked.tokenDevice],"Nouvelle invitation",userAsking.firstName +" "+userAsking.lastName +' vous invite', notificationBody);
         }
        
         res.json({status:status});
@@ -222,24 +222,24 @@ router.get('/', function(req,res,next){
 .post('/response/', function(req,res,next) {
     
     var response  = req.body.response  !== undefined ? req.body.response : '';
-    var userId1 = req.body.userId1 !== undefined ? req.body.userId1 : '' ;
-    var userId2 = req.body.userId2 !== undefined ? req.body.userId2 : '' ;
+    var userAskingId = req.body.userAskingId !== undefined ? req.body.userAskingId : '' ;
+    var userAskedId = req.body.userAskedId !== undefined ? req.body.userAskedId : '' ;
     
-    if( userId1 !== ''  && userId2 !== '' && response !== '') {
-        var relation= getAddRequestFor(userId1, userId2);
-        var userAsking = getUser(userId1);
-        var userAsked = getUser(userId2);
+    if( userAskingId !== ''  && userAskedId !== '' && response !== '') {
+        var relation= getAddRequestFor(userAskingId, userAskedId);
+        var userAsking = getUser(userAskingId);
+        var userAsked = getUser(userAskedId);
         
         if (response === 'accepted') {
             // we add each user in the contact list of each user 
             userDb.forEach(function(user) {
-                if(user.id === userId1){
+                if(user.id === userAskingId){
                     
-                    user.contacts.push(userId2);
+                    user.contacts.push(userAskedId);
                     
-                }else if(user.id === userId2) {
+                }else if(user.id === userAskedId) {
                     
-                    user.contacts.push(userId1)
+                    user.contacts.push(userAskingId)
                 }
             }, this);    
           // we change de add request status 
@@ -260,13 +260,13 @@ router.get('/', function(req,res,next){
 
 .delete('/', function(req,res,next) {
     
-    var userId1 = req.body.userId1 !== undefined ? req.body.userId1 : '' ;
-    var userId2 = req.body.userId2 !== undefined ? req.body.userId2 : '' ;
+    var userAskingId = req.body.userAskingId !== undefined ? req.body.userAskingId : '' ;
+    var userAskedId = req.body.userAskedId !== undefined ? req.body.userAskedId : '' ;
     var returnedRequest = {};
     
-    if( userId1 !== ''  && userId2 !== '') {
+    if( userAskingId !== ''  && userAskedId !== '') {
         var index=addRequestDb.map(function(x){
-                                       return (x.userAskingId === userId1 && x.userAskedId === userId2)
+                                       return (x.userAskingId === userAskingId && x.userAskedId === userAskedId)
                                    })
                     .indexOf(true);
         returnedRequest = addRequestDb.splice(index,1);

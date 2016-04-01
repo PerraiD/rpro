@@ -241,7 +241,7 @@ router.get('/', function(req,res,next){
                     
                 }else if(user.id === userAskedId) {
                     
-                    user.contacts.push(userAskingId)
+                    user.contacts.push(userAskingId);
                 }
             }, this);    
           // we change de add request status 

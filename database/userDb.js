@@ -29,9 +29,7 @@ var userDbStub = [
         },
        location: {"country":{"code":"fr"},"name":"Nantes Area, France"},
        specialties:'',
-       contacts:[{
-           id:'2'
-       }],
+       contacts:[],
       "place":{"uuid":"","associatedPlace":"Inconnu"},
       "tokenDevice":""
     },

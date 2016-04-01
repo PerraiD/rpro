@@ -443,8 +443,20 @@ router.get('/', function(req,res,next) {
  */
 .get('/:id/contacts/',function(req,res,next){
     var user = getUser(req.params.id,res);
+    var contacts = [];
+    
     if(user){
-         res.json(user.contacts);
+         userDbStub.forEach(function(pContact) {
+             user.contacts.forEach(function(id) {
+                 if(pContact.id === id) {
+                     contacts.push(pContact);
+                 }
+             }, this);
+         }, this);
+         
+        res.json(contacts);
+    }else{
+        res.status(500).send("error : undefined user");
     }
    
 })

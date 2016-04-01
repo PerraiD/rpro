@@ -221,16 +221,16 @@ router.get('/', function(req,res,next){
  */
 .post('/response/', function(req,res,next) {
     
-    var reponse  = req.body.reponse  !== undefined ? req.body.reponse : '';
+    var response  = req.body.reponse  !== undefined ? req.body.response : '';
     var userId1 = req.body.userId1 !== undefined ? req.body.userId1 : '' ;
     var userId2 = req.body.userId2 !== undefined ? req.body.userId2 : '' ;
     
-    if( userId1 !== ''  && userId2 !== '' && reponse !== '') {
+    if( userId1 !== ''  && userId2 !== '' && response !== '') {
         var relation= getAddRequestFor(userId1, userId2);
         var userAsking = getUser(userId1);
         var userAsked = getUser(userId2);
         
-        if (reponse === 'accepted') {
+        if (response === 'accepted') {
             // we add each user in the contact list of each user 
             userDb.forEach(function(user) {
                 if(user.id === userId1){
@@ -246,7 +246,7 @@ router.get('/', function(req,res,next){
             relation.status= 'accepted';
             sendPushNotification([userAsking.tokenDevice],"Invitation",userAsked.firstName+" "+ userAsked.lastName + "a accepté votre invitation")
             res.status(200).send();                                
-        } else if (reponse === 'refused') {
+        } else if (response === 'refused') {
            addRequestDb.slice(addRequestDb.indexOf(relation),1);
            res.status(200).send();
         }else{
@@ -254,7 +254,7 @@ router.get('/', function(req,res,next){
         }        
            
     }else{
-        res.status(403).send('error userIds malformed');
+        res.status(403).send('error request malformed');
     }  
 })
 

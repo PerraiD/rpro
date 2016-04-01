@@ -75,7 +75,7 @@ var userDbStub = [
         firstName:"Nicolas",
         lastName:"Nathan",
         emailAddress:"nicolas.nathan@gmail.com",
-        password:"0b9c2625dc21ef05f6ad4ddf47c5f203837aa32c",
+        password:"ca52b6563d364dbc4a0ffdceee6a30abbbb55a03",
         headline:"Expert technique senior .Net",
         industry:"Computer Software",
         pictureUrl:"https://media.licdn.com/mpr/mprx/0_SLdZcZJDeQXdRuIj7CUwcVJDe3TkUdRjfGjFcVRpBXvNkS2g3iJNMs7-Q73U4aVAu6IQ4gLxglWl",

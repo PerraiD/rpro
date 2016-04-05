@@ -9,7 +9,7 @@ router.use(bodyParser.urlencoded({
 }));
 
 
-var notificationsDb = require('../database/notificaitonsDb');
+var notificationsDb = require('../database/notificationsDb');
 
 
 function getUserNotifications(id) {

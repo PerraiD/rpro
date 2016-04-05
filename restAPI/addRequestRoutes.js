@@ -65,7 +65,7 @@ function getAddRequestFor(userAsking, userAsked) {
  * definition of the request for pushnotification
  * 
  */
-function sendPushNotification(tokendevice,title,message,data){
+function sendPushNotification(tokendevice,title,message,data) {
      
     // Define relevant info
     var jwt = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhYjA0MDJhYS1hYTkyLTRiNTMtOTQwNS1hMzg3ODE2YjZlYjEifQ.a18d3wuYXKWdxutsydP4RVJ3-NJZS4BXjMnv8_psSAI';

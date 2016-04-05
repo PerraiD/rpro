@@ -43,6 +43,9 @@ var addrequest = require('./restAPI/addRequestRoutes');
 
 // we get rest add request api definition with routes
  var fileupload = require('./restAPI/fileUploadRoutes');
+ 
+ // we get rest notifications api definition with routes
+ var notifications = require('./restAPI/notificationsRoutes');
 
 /**
  *  Rpro server
@@ -132,14 +135,20 @@ var RproServer = function() {
         // the url will be http://.../searchfields/
         self.app.use('/searchfields',searchfields);
         
-         // we push searchfields routes to the router 
+         // we push addrequest routes to the router 
         // the url will be http://.../addRequest/
         self.app.use('/addrequest',addrequest);
+        
+        // we push fileupload routes to the router 
+        // the url will be http://.../fileupload/
+        // we get rest fileUpload api definiton with routes      
+        self.app.use('/fileupload', fileupload);
         
         // we push searchfields routes to the router 
         // the url will be http://.../addRequest/
         // we get rest fileUpload api definiton with routes      
-        self.app.use('/fileupload', fileupload);
+        self.app.use('/notifications', notifications);
+        
         
          // catch 404 and forward to error handler
         self.app.use(function(req, res, next) {

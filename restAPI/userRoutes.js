@@ -15,7 +15,8 @@ router.use(bodyParser.urlencoded({
 // so if you modify subvalues they will be modify in theses variables !!
 var userDbStub = require('../database/userDb');
 var suggestDb = require('../database/suggestionDb');
-var searchFDb = require('../database/searchFieldsDb'); 
+var searchFDb = require('../database/searchFieldsDb');
+
 
 // global variable editable for the computeCompatibilities function 
 // ponderation shouldn't exceed 1 , they can if sum(ponderations) === number of ponderations
@@ -30,7 +31,7 @@ var pourcentageMin = 60;
 var rotationSize = 10;
 
 /**
- * ======= functions utilities =============================
+ * ======= functions utilities for user=============================
  */
 
 /**

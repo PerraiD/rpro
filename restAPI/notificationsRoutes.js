@@ -71,7 +71,7 @@ router.get('/', function(req,res,next) {
  * 
  */
 
-.post('markasread/:userId/', function(req,res,next) {
+.post('/markasread/:userId', function(req,res,next) {
     
     var userId = req.params.userId !== undefined ? req.params.userId : '';
     var notificationsIds = req.body.notificationsIds !== undefined ? req.body.notificationsIds : ''; 

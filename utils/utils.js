@@ -25,7 +25,7 @@ utils.notifications.generateIdFor = function(userId) {
     
     notificationsDb.forEach(function(element) {
         if(element.userId === userId){
-            id = element.notifications.lenght + 1;
+            id = element.notifications.length + 1;
         }
     }, this);
     

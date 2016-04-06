@@ -254,19 +254,29 @@ router.get('/', function(req,res,next){
                     userAsking.contacts.push(userAskedId);
                     userAsked.contacts.push(userAskingId);
                     
-                    // userDb.forEach(function(user) {
-                    //     if(user.id === userAskingId){
-                            
-                    //         user.contacts.push(userAskedId);
-                            
-                    //     }else if(user.id === userAskedId) {
-                            
-                    //         user.contacts.push(userAskingId);
-                    //     }
-                    // }, this);    
-                    // we change de add request status 
                     relation.status = 'accepted';
-                    sendPushNotification([userAsking.tokenDevice],"Invitation",userAsked.firstName+" "+ userAsked.lastName + "a accepté votre invitation")
+                    
+                    var notificationBody = {
+                        user : userAsked,
+                        type : 'addRequestResponse',
+                        
+                    }
+                    sendPushNotification([userAsking.tokenDevice],"Invitation",userAsked.firstName+" "+ userAsked.lastName + "a accepté votre invitation",notificationBody)
+                    
+                    var notificationToStore = {                
+                        'userId': userAsking.id,
+                        'notificationData': {
+                            'id': utils.notifications.generateIdFor(userAsking.id),
+                            'read': false,
+                            'from': userAsked,
+                            'type':'addRequestResponse',
+                            'data': userAsked,
+                            'dateTime': Date.now()
+                        }
+                    }
+            
+                    utils.notifications.storeNotification(notificationToStore); 
+                    
                     res.status(200).send();   
                 } 
                 

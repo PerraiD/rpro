@@ -204,6 +204,7 @@ router.get('/', function(req,res,next){
         if(userAsked.tokenDevice !== '') {
             
             var notificationBody = {
+                id   : utils.notifications.generateIdFor(userAsking.id),
                 user : userAsking,
                 type : 'addingRequest',
             }                      
@@ -257,6 +258,7 @@ router.get('/', function(req,res,next){
                     relation.status = 'accepted';
                     
                     var notificationBody = {
+                        id   : utils.notifications.generateIdFor(userAsking.id),
                         user : userAsked,
                         type : 'addRequestResponse',
                         

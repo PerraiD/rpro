@@ -234,18 +234,21 @@ router.get('/', function(req,res,next){
         if (response === 'accepted') {
             if(JSON.stringify(relation) !== '{}'){ 
                 // we add each user in the contact list of each user 
-                userDb.forEach(function(user) {
-                    if(user.id === userAskingId){
+                userAsking.contacts.push(userAskedId);
+                userAsked.contacts.push(userAskingId);
+                
+                // userDb.forEach(function(user) {
+                //     if(user.id === userAskingId){
                         
-                        user.contacts.push(userAskedId);
+                //         user.contacts.push(userAskedId);
                         
-                    }else if(user.id === userAskedId) {
+                //     }else if(user.id === userAskedId) {
                         
-                        user.contacts.push(userAskingId);
-                    }
-                }, this);    
+                //         user.contacts.push(userAskingId);
+                //     }
+                // }, this);    
             // we change de add request status 
-                relation.status= 'accepted';
+                relation.status = 'accepted';
                 sendPushNotification([userAsking.tokenDevice],"Invitation",userAsked.firstName+" "+ userAsked.lastName + "a accepté votre invitation")
                 res.status(200).send();   
             }else{

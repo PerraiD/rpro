@@ -81,13 +81,14 @@ router.get('/', function(req,res,next) {
         var userNotifications = utils.notifications.getUserNotifications(userId);
         // we mark all request notifications as read 
         if(JSON.stringify(userNotifications) !== '{}' ) {
-             userNotifications.forEach(function(notification) {
-                if(notificationsIds.indexOf(notification) > 0 ) {
+            
+             userNotifications.notifications.forEach(function(notification) {
+                if(notificationsIds.indexOf(notification) >= 0 ) {
                     notification.read = true;
                 }
              }, this);
         }       
-        res.send().end();     
+        res.send();     
     } else{
         res.status(403).send('request malformed');
     }

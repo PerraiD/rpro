@@ -202,6 +202,7 @@ router.get('/', function(req,res,next){
         var userAsked= getUser(userAskedId);
         
         if(userAsked.tokenDevice !== '') {
+            
             var notificationBody = {
                 user : userAsking,
                 type : 'addingRequest',

@@ -10,6 +10,7 @@ router.use(bodyParser.urlencoded({
 
 var userDb = require('../database/userDb');
 var addRequestDb = require('../database/addRequestDb');
+var utils = require('../utils/utils');
 
 /**
  * function to retrieve user in userStub by its id
@@ -196,9 +197,7 @@ router.get('/', function(req,res,next){
         
         //we push the new askRequest
         addRequestDb.push({userAskingId:userAskingId, userAskedId:userAskedId, status: 'waiting'});
-        
-        
-        // we create the curl request to prevent user. 
+               
         var userAsking= getUser(userAskingId);
         var userAsked= getUser(userAskedId);
         
@@ -206,9 +205,24 @@ router.get('/', function(req,res,next){
             var notificationBody = {
                 user : userAsking,
                 type : 'addingRequest'
-            } 
-             sendPushNotification([userAsked.tokenDevice],"Nouvelle invitation",userAsking.firstName +" "+userAsking.lastName +' vous invite', notificationBody);
-        }
+            }                      
+            
+            sendPushNotification([userAsked.tokenDevice],"Nouvelle invitation",userAsking.firstName +" "+userAsking.lastName +' vous invite', notificationBody);
+            
+            var notificationToStore = {                
+                'userId': userAsked.id,
+                'notificationData': {
+                    'id': utils.notifications.generateIdFor(userAsked.id),
+                    'read': false,
+                    'from': userAsking,
+                    'type':'addingRequest',
+                    'data': userAsking,
+                    'dateTime': Date.now()
+                }
+            }
+            
+            utils.notifications.storeNotification(notificationToStore);            
+         }
        
         res.json({status:status});
         

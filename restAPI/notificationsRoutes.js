@@ -11,17 +11,8 @@ router.use(bodyParser.urlencoded({
 
 var notificationsDb = require('../database/notificationsDb');
 
+var utils = require('../utils/utils');
 
-function getUserNotifications(id) {
-    var userNotifications = {};
-    notificationsDb.forEach(function(element) {
-        if(element.userId === id){
-            userNotifications = element;
-        }
-    }, this);
-    
-    return userNotifications;
-}
 
 function getNotificationFrom(notifications,id) {
    var notif = {};
@@ -76,53 +67,6 @@ router.get('/', function(req,res,next) {
 })
 
 /**
- *  1/ check if the user has already a structure for notifications 
- *     -> if yes adding notifications to it 
- *     -> otherwise create structure.
- */
-.put('/',function(req, res, next) {
-    
-    var userId = req.body.userId !== undefined ? req.body.userId :  '';
-    var notificationData = req.body.notificationData !== undefined ? req.body.notificationData : '';
-    
-    if(userId !== '' && notificationData !== ''){
-        var userNotifications = getUserNotifications(userId);
-        
-        if(JSON.stringify(userNotifications) !== '{}') {
-            
-            userNotifications.notifications.push({
-                                    'id' : userNotifications.notifications.length + 1, // we increment the id
-                                    'read':false,
-                                    'from':notificationData.from,
-                                    'type':notificationData.type,
-                                    'data':notificationData.data,
-                                    'dateTime':notificationData.dateTime       
-                                    });
-            res.send('ok');
-        }else{
-            
-            notificationsDb.push({
-                                    'userId':userId, 
-                                    'notifications':[
-                                        {
-                                            'id': 1, // this is the first notifications 
-                                            'read':false,
-                                            'from':notificationData.from,
-                                            'type':notificationData.type,
-                                            'data':notificationData.data,
-                                            'dateTime':notificationData.dateTime
-                                        }
-                                    ],
-                                   });
-            res.send('ok');                                   
-        }        
-    }else{
-        res.status(403).send('request malformed');
-    }
-   
-})
-
-/**
  * post function that mark one or more notifications as read
  * 
  */
@@ -134,7 +78,7 @@ router.get('/', function(req,res,next) {
       
     if( userId !== '' && notificationsIds !== '') {
         
-        var userNotifications = getUserNotifications(userId);
+        var userNotifications = utils.notifications.getUserNotifications(userId);
         // we mark all request notifications as read 
         if(JSON.stringify(userNotifications) !== '{}' ) {
              userNotifications.forEach(function(notification) {

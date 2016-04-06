@@ -232,25 +232,29 @@ router.get('/', function(req,res,next){
         var userAsked = getUser(userAskedId);
         
         if (response === 'accepted') {
-            if(JSON.stringify(relation) !== '{}'){ 
-                // we add each user in the contact list of each user 
-                userAsking.contacts.push(userAskedId);
-                userAsked.contacts.push(userAskingId);
+            if(JSON.stringify(relation) !== '{}'){
+                 
+                if(relation.status !== 'accepted'){
+                    // we add each user in the contact list of each user 
+                    userAsking.contacts.push(userAskedId);
+                    userAsked.contacts.push(userAskingId);
+                    
+                    // userDb.forEach(function(user) {
+                    //     if(user.id === userAskingId){
+                            
+                    //         user.contacts.push(userAskedId);
+                            
+                    //     }else if(user.id === userAskedId) {
+                            
+                    //         user.contacts.push(userAskingId);
+                    //     }
+                    // }, this);    
+                    // we change de add request status 
+                    relation.status = 'accepted';
+                    sendPushNotification([userAsking.tokenDevice],"Invitation",userAsked.firstName+" "+ userAsked.lastName + "a accepté votre invitation")
+                    res.status(200).send();   
+                } 
                 
-                // userDb.forEach(function(user) {
-                //     if(user.id === userAskingId){
-                        
-                //         user.contacts.push(userAskedId);
-                        
-                //     }else if(user.id === userAskedId) {
-                        
-                //         user.contacts.push(userAskingId);
-                //     }
-                // }, this);    
-            // we change de add request status 
-                relation.status = 'accepted';
-                sendPushNotification([userAsking.tokenDevice],"Invitation",userAsked.firstName+" "+ userAsked.lastName + "a accepté votre invitation")
-                res.status(200).send();   
             }else{
                 res.status(403).send('addrequest not exist');
             }                             

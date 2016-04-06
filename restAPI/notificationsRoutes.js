@@ -83,7 +83,7 @@ router.get('/', function(req,res,next) {
         if(JSON.stringify(userNotifications) !== '{}' ) {
             
              userNotifications.notifications.forEach(function(notification) {
-                if(notificationsIds.indexOf(notification) >= 0 ) {
+                if(notificationsIds.indexOf(notification.id) >= 0 ) {
                     notification.read = true;
                 }
              }, this);

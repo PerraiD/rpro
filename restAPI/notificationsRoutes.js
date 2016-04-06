@@ -40,13 +40,13 @@ router.get('/', function(req,res,next) {
 /**
  * get notifications for the user id 
  */
-.get('/:userid', function(req,res,next) {
-    var userid = req.params.userid;
+.get('/:userId', function(req,res,next) {
+    var userId = req.params.userId;
     var userNotifications = [];
     
-    if(userid !== '') {
+    if(userId !== '') {
          notificationsDb.forEach(function(notif) {
-            if(notif.userid === userid) {
+            if(notif.userId === userId) {
                 userNotifications = notif.notifications;   
             }
          }, this); 
@@ -56,12 +56,12 @@ router.get('/', function(req,res,next) {
     }   
 })
 .get('/:userid/unread',function(req,res,next) {
-    var userid = req.params.userid;
+    var userId = req.params.userid;
     var userNotifications = [];
     
-   if(userid !== '') {
+   if(userId !== '') {
          notificationsDb.forEach(function(notif) {
-            if(notif.userid === userid ) {
+            if(notif.userId === userId ) {
                 notif.notifications.forEach(function(notification) { // we keep only notification that is not readed
                     if(notification.read === false) {
                         userNotifications.push(notification);
@@ -82,11 +82,11 @@ router.get('/', function(req,res,next) {
  */
 .put('/',function(req, res, next) {
     
-    var userid = req.body.userid !== undefined ? req.body.userid :  '';
+    var userId = req.body.userId !== undefined ? req.body.userId :  '';
     var notificationData = req.body.notificationData !== undefined ? req.body.notificationData : '';
     
-    if(userid !== '' && notificationData !== ''){
-        var userNotifications = getUserNotifications(userid);
+    if(userId !== '' && notificationData !== ''){
+        var userNotifications = getUserNotifications(userId);
         
         if(JSON.stringify(userNotifications) !== '{}') {
             
@@ -102,7 +102,7 @@ router.get('/', function(req,res,next) {
         }else{
             
             notificationsDb.push({
-                                    'userId':userid, 
+                                    'userId':userId, 
                                     'notifications':[
                                         {
                                             'id': 1, // this is the first notifications 
@@ -127,15 +127,14 @@ router.get('/', function(req,res,next) {
  * 
  */
 
-.post('markasread/:userid/', function(req,res,next) {
+.post('markasread/:userId/', function(req,res,next) {
     
-    var notifid = req.params.notificationid !== undefined ? req.params.notificationid : '';
-    var userid = req.params.userid !== undefined ? req.params.userid : '';
+    var userId = req.params.userId !== undefined ? req.params.userId : '';
     var notificationsIds = req.body.notificationsIds !== undefined ? req.body.notificationsIds : ''; 
       
-    if(notifid !== '' && userid !== '' && notificationsIds !== '') {
+    if( userId !== '' && notificationsIds !== '') {
         
-        var userNotifications = getUserNotifications(userid);
+        var userNotifications = getUserNotifications(userId);
         // we mark all request notifications as read 
         if(JSON.stringify(userNotifications) !== '{}' ) {
              userNotifications.forEach(function(notification) {

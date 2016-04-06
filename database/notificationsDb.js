@@ -6,6 +6,7 @@
  *  [{
  *      userId: string,
  *      notifications : [{
+ *                      id :  number
  *                      read : boolean,
  *                      from : '',
                         type : '',

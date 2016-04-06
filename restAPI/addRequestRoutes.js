@@ -11,7 +11,6 @@ router.use(bodyParser.urlencoded({
 var userDb = require('../database/userDb');
 var addRequestDb = require('../database/addRequestDb');
 
-
 /**
  * function to retrieve user in userStub by its id
  * @param id of the user , res the response request
@@ -204,7 +203,7 @@ router.get('/', function(req,res,next){
         var userAsked= getUser(userAskedId);
         
         if(userAsked.tokenDevice !== '') {
-            var notificationBody ={
+            var notificationBody = {
                 user : userAsking,
                 type : 'addingRequest'
             } 

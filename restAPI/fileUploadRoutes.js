@@ -19,7 +19,7 @@ var transfertDb = require('../database/transfertDb');
  * definition of the request for pushnotification
  * 
  */
-function setPushNotification(tokendevice,title,message,data){
+function setPushNotification(tokendevice,title,message,data) {
     
     // Define relevant info
     var jwt = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhYjA0MDJhYS1hYTkyLTRiNTMtOTQwNS1hMzg3ODE2YjZlYjEifQ.a18d3wuYXKWdxutsydP4RVJ3-NJZS4BXjMnv8_psSAI';

@@ -42,7 +42,7 @@ router.get('/', function(req,res,next) {
  */
 .get('/:userid', function(req,res,next) {
     var userid = req.params.userid;
-    var userNotifications = {};
+    var userNotifications = [];
     
     if(userid !== '') {
          notificationsDb.forEach(function(notif) {
@@ -102,7 +102,7 @@ router.get('/', function(req,res,next) {
         }else{
             
             notificationsDb.push({
-                                    'userid':userid, 
+                                    'userId':userid, 
                                     'notifications':[
                                         {
                                             'id': 1, // this is the first notifications 
@@ -136,10 +136,10 @@ router.get('/', function(req,res,next) {
     if(notifid !== '' && userid !== '' && notificationsIds !== '') {
         
         var userNotifications = getUserNotifications(userid);
-        // we mark as read all notification that are in the request
+        // we mark all request notifications as read 
         if(JSON.stringify(userNotifications) !== '{}' ) {
              userNotifications.forEach(function(notification) {
-                if(notificationsIds.indexOf(notification) >0 ) {
+                if(notificationsIds.indexOf(notification) > 0 ) {
                     notification.read = true;
                 }
              }, this);
@@ -149,6 +149,17 @@ router.get('/', function(req,res,next) {
         res.status(403).send('request malformed');
     }
     
+})
+
+/**
+ * Delete function that delete all entry in notificationsDb
+ * function that have to be delete !!!
+ * use it only on the development
+ * 
+ */
+.delete('/', function(req,res,next){
+    notificationsDb = [];
+    res.send();
 })
 
 module.exports = router;

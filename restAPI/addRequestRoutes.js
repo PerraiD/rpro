@@ -249,7 +249,7 @@ router.get('/', function(req,res,next){
         if (response === 'accepted') {
             if(JSON.stringify(relation) !== '{}'){
                  
-                if(relation.status !== 'accepted'){
+                if(relation.status !== 'accepted') {
                     // we add each user in the contact list of each user 
                     userAsking.contacts.push(userAskedId);
                     userAsked.contacts.push(userAskingId);

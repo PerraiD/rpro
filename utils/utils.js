@@ -1,5 +1,7 @@
 var notificationsDb = require('../database/notificationsDb');
-var utils = {};
+var utils = {
+       notifications : {}
+};
 
 
 utils.notifications.getUserNotifications = function(id) {

@@ -87,7 +87,7 @@ router.get('/', function(req,res,next) {
                 }
              }, this);
         }       
-           
+        res.end();     
     } else{
         res.status(403).send('request malformed');
     }

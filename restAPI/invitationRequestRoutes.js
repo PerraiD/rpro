@@ -211,25 +211,19 @@ router.get('/', function(req,res,next){
         if(userAsked.tokenDevice !== '') {
             
             var notificationBody = {
-                id   : utils.notifications.generateIdFor(userAsking.id),
-                user : userAsking,
-                message: message,
-                place : place,
-                type : 'invitationRequest'
-            }                      
-            
-            sendPushNotification([userAsked.tokenDevice],"Nouvelle invitation",userAsking.firstName +" "+userAsking.lastName +' vous invite', notificationBody);
-            
-            var notificationToStore = {                
-                'userId': userAsked.id,
-                'notificationData': {
                     'id': utils.notifications.generateIdFor(userAsked.id),
                     'read': false,
                     'from': userAsking,
                     'type':'invitationRequest',
                     'data': {'message': message, 'place' : place},
                     'dateTime': Date.now()
-                }
+            }                      
+            
+            sendPushNotification([userAsked.tokenDevice],"Nouvelle invitation",userAsking.firstName +" "+userAsking.lastName +' vous invite', notificationBody);
+            
+            var notificationToStore = {                
+                'userId': userAsked.id,
+                'notificationData': notificationBody              
             }
             
             utils.notifications.storeNotification(notificationToStore);            
@@ -265,23 +259,19 @@ router.get('/', function(req,res,next){
                     relation.status = 'accepted';
                     
                     var notificationBody = {
-                        id   : utils.notifications.generateIdFor(userAsking.id),
-                        user : userAsked,
-                        type : 'invitationRequestResponse',
-                        
-                    } 
-                    sendPushNotification([userAsking.tokenDevice],"Invitation",userAsked.firstName+" "+ userAsked.lastName + " a accepté votre invitation",notificationBody)
-                    
-                    var notificationToStore = {                
-                        'userId': userAsking.id,
-                        'notificationData': {
                             'id': utils.notifications.generateIdFor(userAsking.id),
                             'read': false,
                             'from': userAsked,
                             'type':'invitationRequestResponse',
                             'data': {'message': message, 'place' : place},
                             'dateTime': Date.now()
-                        }
+                        
+                    } 
+                    sendPushNotification([userAsking.tokenDevice],"Invitation",userAsked.firstName+" "+ userAsked.lastName + " a accepté votre invitation",notificationBody)
+                    
+                    var notificationToStore = {                
+                        'userId': userAsking.id,
+                        'notificationData': notificationBody
                     }
             
                     utils.notifications.storeNotification(notificationToStore); 

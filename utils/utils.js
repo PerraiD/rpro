@@ -3,6 +3,9 @@ var utils = {
        notifications : {}
 };
 
+/**
+ * =================== notification utils=================
+ */
 
 utils.notifications.getUserNotifications = function(id) {
     var userNotifications = {};
@@ -54,5 +57,9 @@ utils.notifications.storeNotification = function(notification){
                                    });                                 
         }             
 }
+
+
+
+
 
 module.exports = utils;

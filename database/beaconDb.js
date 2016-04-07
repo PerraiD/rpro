@@ -3,13 +3,19 @@
 var beaconDbStub = [
     { 
        idBeacon:'a123',
-       associatedPlace:'gare mont-parnasse',
+       associatedPlace:'Gare Mont-Parnasse',
        longitude : 2.31,
        latitude  : 48.8
     },
     {
        idBeacon:'b345',
-       associatedPlace : 'train Nantes-Paris',
+       associatedPlace : 'Wagon restaurant train Nantes-Paris',
+       longitude: 0.0,
+       latitude : 0.0 
+    },
+    {
+       idBeacon:'D678',
+       associatedPlace : 'caféteria gare Lyon',
        longitude: 0.0,
        latitude : 0.0 
     },

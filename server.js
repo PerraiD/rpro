@@ -26,27 +26,23 @@ morgan.token('errTxt', function(req, res){
     return res.statusMessage; 
 });
 
-// logging access 
-var logg = require('./restAPI/loggRoutes');
-
-//we get rest user api definition with routes
-var user = require('./restAPI/userRoutes');
-
-//we get rest beacon api definition with routes
-var beacon = require('./restAPI/beaconRoutes');
-
-//we get rest search fields api definition with routes
-var searchfields = require('./restAPI/searchFieldsRoutes');
-
-// we get rest add request api definition with routes 
-var addrequest = require('./restAPI/addRequestRoutes');
-
-// we get rest add request api definition with routes
- var fileupload = require('./restAPI/fileUploadRoutes');
+ // we get rest api definitions with routes
  
- // we get rest notifications api definition with routes
- var notifications = require('./restAPI/notificationsRoutes');
+var logg                    = require('./restAPI/loggRoutes');
 
+var user                    = require('./restAPI/userRoutes');
+
+var beacon                  = require('./restAPI/beaconRoutes');
+
+var searchfields            = require('./restAPI/searchFieldsRoutes');
+ 
+var addrequest              = require('./restAPI/addRequestRoutes');
+    
+var fileupload              = require('./restAPI/fileUploadRoutes');
+ 
+var notifications           = require('./restAPI/notificationsRoutes');
+ 
+var invitationRequestRoutes = require('./restAPI/invitationRequestRoutes');
 /**
  *  Rpro server
  */
@@ -148,6 +144,11 @@ var RproServer = function() {
         // the url will be http://.../addRequest/
         // we get rest fileUpload api definiton with routes      
         self.app.use('/notifications', notifications);
+        
+         // we push searchfields routes to the router 
+        // the url will be http://.../addRequest/
+        // we get rest fileUpload api definiton with routes      
+        self.app.use('/invitationrequest', invitationRequestRoutes);
         
         
          // catch 404 and forward to error handler

@@ -170,7 +170,7 @@ router.get('/', function(req,res,next){
     
     if(userAskingId && userAskingId !== '' && userAskedId && userAskedId !== '') {
         invitationRequestDb.forEach(function(relation) {
-            // we ensure that if the two user can see the status 
+            // we ensure  the two user can see the status 
             if( (relation.userAskingId === userAskingId && relation.userAskedId === userAskedId)
              || (relation.userAskingId === userAskedId && relation.userAskedId === userAskingId) ){
                 status = relation.status; 
@@ -254,10 +254,8 @@ router.get('/', function(req,res,next){
         var userAsked = getUser(userAskedId);
         
         if (response === 'accepted') {
-            if(JSON.stringify(relation) !== '{}'){
-                 
-                if(relation.status !== 'accepted') {
-                    
+            if(JSON.stringify(relation) !== '{}') {
+                                
                     relation.status = 'accepted';
                     
                     var notificationBody = {
@@ -279,8 +277,7 @@ router.get('/', function(req,res,next){
                     utils.notifications.storeNotification(notificationToStore); 
                     
                     res.status(200).send();   
-                } 
-                
+                       
             }else{
                 res.status(403).send('invitationRequest doesn\'t exist');
             }                             

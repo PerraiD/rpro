@@ -196,7 +196,7 @@ router.get('/', function(req,res,next){
     var message = req.body.message !== undefined ? req.body.message : '';
     var place = req.body.place !== undefined ? req.body.place : {};
     
-    if(userAskingId !== '' && userAskedId !== '' && message !== '' &&  place !== '') {
+    if(userAskingId !== '' && userAskedId !== ''  &&  place !== '') {
         
         //we push the new invitationRequest
         invitationRequestDb.push(   { userAskingId:userAskingId, 
@@ -246,7 +246,7 @@ router.get('/', function(req,res,next){
     var message = req.body.message !== undefined ? req.body.message : '';
     var place = req.body.place !== undefined ? req.body.place : {};
     
-    if(userAskingId !== '' && userAskedId !== '' && message !== '' &&  place !== '') {
+    if(userAskingId !== '' && userAskedId !== '' &&  place !== '') {
         var relation = getInvitationRequestFor(userAskingId, userAskedId);
         var userAsking = getUser(userAskingId);
         var userAsked = getUser(userAskedId);

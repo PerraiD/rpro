@@ -1,6 +1,9 @@
 var notificationsDb = require('../database/notificationsDb');
+var beaconDb = require('../database/beaconDb');
+
 var utils = {
-       notifications : {}
+       notifications : {},
+       beacons: {}
 };
 
 /**
@@ -58,7 +61,21 @@ utils.notifications.storeNotification = function(notification){
         }             
 }
 
+/**
+ * =================== notification utils=================
+ */
 
+utils.beacons.getBeaconPlaceFromId = function (placeId) {
+    var place = '';
+    beaconDb.forEach(function(beacon) {
+        if(beacon.idBeacon === placeId) {
+            place = beacon.associatedPlace;
+        }
+        
+    }, this);
+    
+    return place;
+}
 
 
 

@@ -194,9 +194,11 @@ router.get('/', function(req,res,next){
     var userAskingId = req.body.userAskingId !== undefined ? req.body.userAskingId : '' ;
     var userAskedId = req.body.userAskedId !== undefined ? req.body.userAskedId : '' ;
     var message = req.body.message !== undefined ? req.body.message : '';
-    var place = req.body.place !== undefined ? req.body.place : {};
+    var placeId = req.body.place !== undefined ? req.body.place : {};
     
-    if(userAskingId !== '' && userAskedId !== ''  &&  place !== '') {
+    if(userAskingId !== '' && userAskedId !== ''  &&  placeId !== '') {
+        
+        var place = utils.beacons.getBeaconPlaceFromId(placeId);
         
         //we push the new invitationRequest
         invitationRequestDb.push(   { userAskingId:userAskingId, 

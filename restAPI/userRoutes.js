@@ -649,7 +649,7 @@ router.get('/', function(req,res,next) {
                 users.push(otherUser);
             }
         }, this);
-        res.json(users);
+        res.json(user);
     }else{
         res.status(403).send('user error');
     }

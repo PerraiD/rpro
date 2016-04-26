@@ -95,8 +95,8 @@ function sendPushNotification(tokendevice,title,message,data) {
                 "priority":"high",
             },
             "ios": {
-                "title": "Howdy",
-                "message": "Hello iOS!"
+                "title": title,
+                "message": message
             }
         }
     }

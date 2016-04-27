@@ -59,8 +59,8 @@ function setPushNotification(tokendevice,title,message,data) {
 }
 
 router.post('/upload/file',upload.single('file'),function(req,res,next){
-    res.status(500).json(req.file);
-    /*
+    //res.status(500).json(req.file);
+    
     if(req.file !== undefined && req.file.path !== undefined) {
         var usersToPrevent = JSON.parse(req.body.users);
         var sender = req.body.sender;
@@ -94,7 +94,7 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
         
     }else{
         res.status(400).send('file not uploaded');
-    }*/
+    }
 })
 .post('/allowtransfer/',function(req,res,next){
     

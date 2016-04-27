@@ -89,8 +89,9 @@ function updateUser(userFound,reqBody) {
     if (reqBody) {
         
        for (var params in reqBody) {
-           // we avoid to insert non existing property and avoir the modification of the id and password that it's forbbiden
+           // we avoid to insert non existing property and avoid the modification of the id and password that it's forbbiden
             if( params && params !== '' && userFound[params] !== undefined && params !== 'id' && params !== 'password' ) {
+                               
                 userFound[params] = reqBody[params];
             }
         }        
@@ -649,9 +650,8 @@ router.get('/', function(req,res,next) {
                                
                 users.push(otherUser);
             }
-        }, this);
-        
-        res.json(userDbStub);
+        }, this);        
+        res.json(users);
     }else{
         res.status(403).send('user error');
     }

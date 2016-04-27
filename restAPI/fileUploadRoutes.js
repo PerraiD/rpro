@@ -59,15 +59,17 @@ function setPushNotification(tokendevice,title,message,data) {
 }
 
 router.post('/upload/file',upload.single('file'),function(req,res,next){
-   try {
-
+    res.json(req.file);
+    /*
     if(req.file !== undefined && req.file.path !== undefined) {
         var usersToPrevent = JSON.parse(req.body.users);
         var sender = req.body.sender;
         
         var filename = req.file.originalname;
         fs.readFile(req.file.path, function (err, data) {
-    
+            if(err) {
+                res.send(500).send(err);
+            }
             var filePath = process.env.OPENSHIFT_DATA_DIR !== undefined ?  process.env.OPENSHIFT_DATA_DIR + filename : __dirname +'/'+filename;
             var url = "https://rpro-epic2.rhcloud.com/fileupload/"+filename;
             
@@ -92,11 +94,7 @@ router.post('/upload/file',upload.single('file'),function(req,res,next){
         
     }else{
         res.status(400).send('file not uploaded');
-    }
-   
-    } catch (error) {
-       res.status(500).json(error);
-   } 
+    }*/
 })
 .post('/allowtransfer/',function(req,res,next){
     

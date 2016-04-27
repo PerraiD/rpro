@@ -59,7 +59,7 @@ function setPushNotification(tokendevice,title,message,data) {
 }
 
 router.post('/upload/file',upload.single('file'),function(req,res,next){
-    res.json(req.file);
+    res.status(500).json(req.file);
     /*
     if(req.file !== undefined && req.file.path !== undefined) {
         var usersToPrevent = JSON.parse(req.body.users);

@@ -645,11 +645,13 @@ router.get('/', function(req,res,next) {
     
     if(JSON.stringify(user) !== '{}') {        
         userDbStub.forEach(function(otherUser) {          
-            if(user.place.uuid === otherUser.place.uuid  &&  user.id !== otherUser.id ) {                
+            if(user.place.uuid === otherUser.place.uuid  &&  user.id !== otherUser.id ) { 
+                               
                 users.push(otherUser);
             }
         }, this);
-        res.json(users);
+        
+        res.json(userDbStub);
     }else{
         res.status(403).send('user error');
     }

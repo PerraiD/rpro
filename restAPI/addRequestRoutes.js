@@ -211,7 +211,7 @@ router.get('/', function(req,res,next){
                     'read'    : false,
                     'from'    : userAsking,
                     'type'    :'addingRequest',
-                    'data'    : userAsking,
+                    'data'    : JSON.stringify(userAsking),
                     'dateTime': Date.now()
             }                      
             

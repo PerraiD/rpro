@@ -208,9 +208,9 @@ router.get('/', function(req,res,next){
             var notificationBody = {
                     'id'      : utils.notifications.generateIdFor(userAsked.id),
                     'read'    : false,
-                    'from'    : JSON.stringify(userAsking),
+                    'from'    : userAsking,
                     'type'    :'addingRequest',
-                    'data'    : JSON.stringify(userAsking),
+                    'data'    : userAsking,
                     'dateTime': Date.now()
             }                      
             

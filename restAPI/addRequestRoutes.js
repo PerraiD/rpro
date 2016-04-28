@@ -193,8 +193,7 @@ router.get('/', function(req,res,next){
     var status  = 'waiting';
     var userAskingId = req.body.userAskingId !== undefined ? req.body.userAskingId : '' ;
     var userAskedId = req.body.userAskedId !== undefined ? req.body.userAskedId : '' ;
-    
-    res.send(500).send(userAskedId +" "+ userAskingId);
+        
     
     if(userAskingId && userAskingId !== '' && userAskedId && userAskedId !== '') {
         

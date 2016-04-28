@@ -644,15 +644,19 @@ router.get('/', function(req,res,next) {
     var user = getUser(id,res);
     var users = [];
     
-    if(JSON.stringify(user) !== '{}') {        
-        userDbStub.forEach(function(otherUser) {          
-            if(user.place.uuid === otherUser.place.uuid  &&  user.id !== otherUser.id ) { 
-                               
-                users.push(otherUser);
-            }
-        }, this);        
-        res.json(users);
-    }else{
+    if(JSON.stringify(user) !== '{}') {
+        if(user.place.uuid !== ''){
+            userDbStub.forEach(function(otherUser) {          
+                if(user.place.uuid === otherUser.place.uuid  &&  user.id !== otherUser.id) { 
+                                
+                    users.push(otherUser);
+                }
+            }, this);        
+            res.json(users);  
+        } else {
+            res.status(403).send('user is not in a beacon region');
+        }                
+    } else {
         res.status(403).send('user error');
     }
 })

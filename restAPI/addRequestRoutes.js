@@ -263,7 +263,7 @@ router.get('/', function(req,res,next){
                             'data'    : userAsked,
                             'dateTime': Date.now()
                     }
-                    sendPushNotification([userAsking.tokenDevice],"Invitation",userAsked.firstName+" "+ userAsked.lastName + "a accepté votre invitation",notificationBody)
+                    sendPushNotification([userAsking.tokenDevice],"Invitation",userAsked.firstName+" "+ userAsked.lastName + " a accepté votre invitation",notificationBody)
                     
                     var notificationToStore = {                
                         'userId': userAsking.id,
